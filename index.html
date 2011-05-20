@@ -4,103 +4,24 @@
 
 		<meta charset="UTF-8">
 		<meta name="author" content="Aaron Stacy" />
-		<meta name="keywords" content="aaron stacy website" />
-		<meta name="description" content="aaron stacy's website" />
-		<link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		<meta name="keywords" content="aaron stacy github" />
+		<meta name="description" content="aaron stacy's github profile" />
 
-		<title>aaron stacy dot com</title>
+		<title>aaron stacy's githubs</title>
 
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
-		<script src="jquery.scrollTo-min.js" type="text/javascript"></script>
-		<script src="jquery.localScroll-min.js" type="text/javascript"></script>
-		<script src="app.js" type="text/javascript"></script>
+		<style>
+			body {
+				font: 96px "Andale Mono" Courier;
+				color: #032B37;
+			}
 
+			a {
+				color: #D49569;
+			}
+		</style>
 	</head>
 	<body>
-
-		<div id="slider">
-			<h1><a href="/">&nbsp;aaron stacy dot com</a></h1>
-			<div class="navigation">
-				<div  id="tabs">
-					<a href="#about">about</a>
-					<a href="#resume">resume</a>
-					<a href="#elsewhere">elsewhere</a>
-					<a href="#contact">contact</a>
-				</div>
-			</div>
-
-			<div class="scroll">
-				<div class="scrollContainer">
-					<div id="about" class="panel">
-						<p><span id="head-shot"><img src="head_shot.jpg" /></span>I am a 25 year old computer engineer living in <a href="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=30.39662,+-97.83289&sll=30.395625,-97.831793&sspn=0.012882,0.019999&ie=UTF8&t=h&ll=30.316284,-97.726822&spn=0.206276,0.319977&z=12">Austin, Texas</a>, and I am currently employed by <a href="http://www.arlut.utexas.edu/atl/index.html">Applied Research Laboratories</a>.  I am happily married to a beautiful girl named Ashly, and I’m a follower of Jesus Christ (<a href="http://biblia.com/bible/esv/Jn13.35">read more</a>).</p>
-						<p>In May of 2009 I graduated from <a href="https://engineering.purdue.edu/ECE/">Purdue University’s Computer Engineering program</a>, and now I'm working on a Mater's in <a href="http://www.cs.utexas.edu/">Computer Science at University of Texas</a>.  I also spent several years in the Marine Corps, during which I had the opportunity to serve overseas with <a href="http://www.facebook.com/pages/Detachment-1-Communications-Company/302302460425">an exemplary reserve unit</a>.</p>
-					</div>
-
-					<div id="resume" class="panel">
-						<p>A bit of street cred:</p>
-						<dl>
-							<dt><a href="AaronStacyResume7.0.website.pdf">My résumé</a><dt>
-							<dd>At least the most recent version</dd>
-							<dt><a href="https://engineering.purdue.edu/ece477/Webs/S09-Grp11/index.html">Senior design website</a><dt>
-							<dd>My team made a hand-held portable navigation device -- it's just a senior design project so don't hate</dd>
-						</dl>
-					</div>
-
-					<div id="elsewhere" class="panel">
-						<p>you can find me elsewhere on the web...</p>
-						<ul>
-							<li><a href="http://www.facebook.com/aaron.r.stacy">on facebook</a></li>
-							<li><a href="http://twitter.com/#!/aaronj1335">on twitter</a></li>
-							<li><a href="http://vimeo.com/aaronj1335">on vimeo</a></li>
-							<li><a href="http://www.flickr.com/photos/aaronj1335/">on flikr</a></li>
-							<li><a href="http://stackoverflow.com/users/5377/aaronstacy">on stackoverflow</a></li>
-						</ul>
-					</div>
-
-					<div id="contact" class="panel">
-						<div id="explanation">The best way to get a hold of me is e-mail:</div>
-						<div class="errors"></div>
-						<div class="success"></div>
-						<form value="message" action="send_message.py#contact" method="post">
-							<table>
-								<tr>
-									<td><label>your e-mail:</label></td>
-									<td><input type="text" name="email" /></td>
-								</tr>
-								<tr>
-									<td><label>subject:</label></td>
-									<td><input type="text" name="subject" /></td>
-								</tr>
-								<tr>
-									<td><label>message:</label></td>
-									<td id="message"><textarea name="message"></textarea></td>
-								</tr>
-								<tr>
-									<td></td>
-									<td><input type="submit" name="send" value="send" /></td>
-								</tr>
-							</table>
-						</form>
-					</div>
-
-				</div>
-			</div>
-		</div>
-
-		<div class="info">
-			<p>this site's design, content, backend, and hosting are all done by aaron stacy.  it uses some fancy new techniques, so for the optimal experience i recommend <a href="http://www.google.com/chrome">using</a> a <a href="http://www.apple.com/safari/download/">modern</a> <a href="http://www.mozilla.com/en-US/firefox/firefox.html">browser</a>. this site stands proudly on the shoulders of the following open source projects:</p>
-			<ul>
-				<li><a href="http://jquery.com/">jQuery</a></li>
-				<li><a href="http://www.python.org/">Python</a></li>
-				<li><a href="http://www.modpython.org/">mod_python</a></li>
-				<li><a href="http://httpd.apache.org/">Apache</a></li>
-				<li><a href="http://www.ubuntu.com/">Ubuntu</a></li>
-				<li><a href="http://www.vim.org/">Vim</a></li>
-			</ul>
-			<p> I should cite <a href="http://stackoverflow.com">Stackoverflow</a> as inspiration for the navigation tabs and <a href="http://jqueryfordesigners.com/">jQuery for Designers</a> for their excellent <a href="http://jqueryfordesigners.com/coda-slider-effect/">tutorial</a> on <a href="http://flesler.blogspot.com/">Ariel Flesler's</a> <a href="http://flesler.blogspot.com/2007/10/jquerylocalscroll-10.html">jQuery.LocalScroll</a>.
-		</div>
-		<span class="info">
-			<a>*</a>
-		</span>
+		if i wasn't doing <a href="http://aaronstacy.com">this</a> all the time
+		i'd have a better tan.
 	</body>
 </html>
