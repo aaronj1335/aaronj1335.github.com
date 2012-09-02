@@ -1,6 +1,6 @@
 ---
 layout: page
-title: aaron stacy dot com
+title: aaron
 tagline: not in the face
 ---
 {% include JB/setup %}
