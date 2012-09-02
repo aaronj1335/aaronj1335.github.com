@@ -1,25 +1,33 @@
 ---
 layout: post
-title: '"triangles", or "the shape of an application"'
+title: '"triangles" or "the shape of an application"'
+author: Aaron Stacy
 description: "mv\* layout in client-side javascript applications"
 category: code
 tags: [code, javascript]
 ---
-{% include JB/setup %}
 
-mvc has become a bit of a buzzword. it's a complicated and nuanced concept, and even if you're using an mvc framework, it's easy to get wrong.
+<h1>
+  "triangles" <br />
+  <small>— or —</small> <br />
+  "the shape of an application"
+</h1>
 
-a year and a half ago i was interviewing for my first job as a client-side developer, and the question came up:
+{% include byline %}
+
+mvc has become a bit of a buzzword &lt;/understatement&gt;. it's a complicated, nuanced concept, and even if you're using an mvc framework, it's easy to get wrong.
+
+a year and a half ago i was interviewing for my first job as a web developer, and the question came up:
 
 > what is mvc design?
 
-i probably regurgitated something i had read on a blog post or tutorial that sounded something like:
+i probably regurgitated something i had read in a blog post that sounded something like:
 
 > models are where you put your business logic.
 
 while that may be true, it only applies to a specific use case. it glosses over the deeper concept, and as a result i made some poor design choices when i found myself in unfamiliar design territory.
 
-regardless of your mv\* flavor (mvc, mvp, mvvm, …) one of the foundational concepts that you must get right is *separating and isolating state*, whether it's the number of items in a user's shopping cart or which todo the user is editing.
+regardless of your mv\* flavor (mvc, mvp, mvvm, …) one of the foundational concepts that you must get right is *separating and isolating state*, whether it's the number of products in a user's shopping cart or the todo item the user is editing.
 
 ## bringing it down to earth
 
@@ -29,13 +37,21 @@ say you're one of the top-flight engineers on the [sparrow][] team, and you've j
 
 ### high level stuff
 
-you do all the typical wire framing stuff and end up with some wires that look like this:
+you do all the typical wireframing stuff and end up with some wires that look like this:
 
-<img src="/assets/triangles/sparrow_gmail.png" />
+<div class=row>
+  <div class="eight columns offset-by-one">
+    <img class=full-width src=/assets/triangles/sparrow_gmail.png />
+  </div>
+</div>
 
-you start banging out some code and come up with a view hierarchy that look like this:
+you start banging out some code and come up with a view hierarchy that looks like this:
 
-<img src="/assets/triangles/app_structure.png" />
+<div class=row>
+  <div class="eight columns offset-by-one">
+    <img class=full-width src=/assets/triangles/app_structure.png />
+  </div>
+</div>
 
 this is simplified for the sake of instruction, but basically you've got a view for the list of e-mails on the left, and a view for the selected message on the right. these are composed in a full mailbox view. the view hierarchy presumably reflects the dom hierarchy.
 
@@ -85,7 +101,7 @@ a naïve way to hook all of this up may involve the code below (i'm using [backb
 
 ### the problem
 
-this design may seem harmless, like it's leveraging mv\* concepts with the views and the models, but the problem is we have not isolated application state in the model layer. there should be one and only one place where the page tracks what e-mail is currently selected.
+this design may seem harmless, like it's leveraging mv\* concepts with the views and the models, but the problem is we have not isolated application state in the model layer. the page should track which e-mail is selected in one and only one place.
 
 as we'll see, leaving state around like this makes things complicated as the application grows.
 
@@ -93,7 +109,11 @@ as we'll see, leaving state around like this makes things complicated as the app
 
 one hallmark of this sort of design is the communication triangle that forms between the parent view and its children:
 
-<img src="/assets/triangles/triangle.png" />
+<div class=row>
+  <div class="eight columns offset-by-one">
+    <img class=full-width src=/assets/triangles/triangle.png />
+  </div>
+</div>
 
 the parent element should not need to be involved for this communication. this gets especially bad with heavily-nested view hierarchies. additionally, in my experience, this pattern encourages a lot of ad-hoc method names like `getMessageModelFromDOMEl` and `setMessage` which make it difficult to grok someone else's code.
 
@@ -147,7 +167,8 @@ a more mv\* approach would track the selected mail message in the model layer. t
         }
     });
 
-now the collection serves as a [single point of truth][spot] for answering the question 'which e-mail is selected'.
+
+now the collection serves as a [single point of truth][spot] for determining which email is selected.
 
 one rule of thumb we see emerging here is that the model layer should be responsible for publishing events to disparate pieces of code. when a view is responsible for tracking state like which resource a user selected and another view needs to be notified of changes, the information must go all the way up through a common ancestor in the view hierarchy and back down.
 
@@ -157,9 +178,13 @@ now pretend that new features have crept into the requirements (i know, right?),
 
 when the user selects a message, we'll update the url with a slug for the message's subject. so our wireframes would become something like this (notice the updated url):
 
-<img src="/assets/triangles/sparrow_gmail_with_routing.png" />
+<div class=row>
+  <div class="eight columns offset-by-one">
+    <img class=full-width src="/assets/triangles/sparrow_gmail_with_routing.png" />
+  </div>
+</div>
 
-this feature introduces a second means of setting the selected message (via the url), and in our first design it becomes extremely tricky to correctly render the views: the parent has to decide whether to update the `MessageView` based on the `MessageListView` or the url. this doesn't scale either, since the parent view must be modified every time we add a new way for the user to set the selected message.
+this feature introduces a second means of setting the selected message (via the url), and in our first design it becomes extremely tricky to correctly render the views: the parent has to decide whether to update the `MessageView` based on the `MessageListView` or the url. the views are tightly coupled, and as a result every time we add new functionality, we find ourselves having to re-work parts of the existing code.
 
 however our second design handles this much more elegantly. we don't even need to touch the existing code, just add a bit of routing code to the top level of our application:
 
@@ -178,6 +203,7 @@ however our second design handles this much more elegantly. we don't even need t
         var selectedMessage = emails.where({selected: true})[0];
         history.pushState(null, null, makeUrlFromModel(selectedMessage));
     });
+
 
 the app is really leveraging mv\* design concepts now. the model layer gives us a way to loosely couple components, such that we can integrate features into the app without having to modify existing code. that's powerful.
 

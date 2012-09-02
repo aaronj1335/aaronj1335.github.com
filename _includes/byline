@@ -1,0 +1,6 @@
+<div class="row byline">
+  <span class=by>by</span>
+  <a href="/" class=author>{{ page.author }}</a>
+  <span class=on>on</span>
+  <span class=date>{{ page.date | date: "%d %B, %Y" }}</span>
+</div>
