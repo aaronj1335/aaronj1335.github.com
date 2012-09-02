@@ -103,6 +103,10 @@ hr {
   border-style: dotted;
 }
 
+html {
+  margin-top: 20px;
+}
+
 
 
 /*******************************************************************************
@@ -128,6 +132,16 @@ hr {
   padding: 0.5em 0;
 }
 
-html {
-  margin-top: 20px;
+
+/*******************************************************************************
+ * copy
+ */
+
+.copy {
+  border-top-style: dotted;
+  border-bottom-style: dotted;
+  border-width: 1px 0;
+  padding: 0.5em 0;
+  margin: 20px 0;
+  text-align: center;
 }
