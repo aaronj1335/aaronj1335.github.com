@@ -16,8 +16,35 @@ h1 small {
   color: #777;
 }
 
+h1 code {
+  text-transform: none;
+  border: none;
+}
+
 code {
   font-family: Consolas, monospace;
+  border: 1px solid #bbb;
+  padding: 0 2px;
+  font-size: 0.9em;
+  vertical-align: top;
+          border-radius: 3px;
+     -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover code {
+  color: #333;
+  border-color: #ccc;
+}
+
+blockquote code {
+  font-style: normal;
+  border: none;
+  vertical-align: baseline;
+  font-size: 1em;
+  color: #777;
 }
 
 pre {
@@ -25,10 +52,14 @@ pre {
   padding: 20px;
   overflow: auto;
   background-color: #eee;
-  border-radius: 10px;
+          border-radius: 10px;
+     -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
 }
 pre code {
   background-color: #eee;
+  border-width: 0;
+  font-size: 1.0em;
 }
 /* for the ascetic color scheme in highlight.js */
 pre .comment,
@@ -43,8 +74,15 @@ pre .apache .sqbracket {
 }
 
 
+a {
+  color: #222;
+}
+
+a:visited, a:visited:hover {
+  color: #555;
+}
+
 a, a:visited {
-  color: #333;
   padding: 0 2px;
   text-decoration: underline;
   outline: 0;
