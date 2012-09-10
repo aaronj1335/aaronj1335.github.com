@@ -107,7 +107,8 @@ a:hover, a:focus {
 }
 
 ul {
-  list-style: disc inside;
+  list-style: disc outside;
+  margin-left: 20px;
 }
 
 img.me {
