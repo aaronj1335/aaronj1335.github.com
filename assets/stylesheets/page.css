@@ -789,7 +789,7 @@ html {
           border-radius: 1em;
      -moz-border-radius: 1em;
   -webkit-border-radius: 1em;
-  margin: 1em;
+  margin: 20px;
   font-size: 0.875em;
   line-height: 1.25em;
 }
