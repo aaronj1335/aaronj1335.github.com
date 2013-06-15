@@ -149,7 +149,7 @@ community, because that will have a huge impact in the long run.
 [vanity]: /assets/images/vanity.png
 [scoreboard]: http://www.spoj.com/ranks/PROBTNPO/lang=PYTH%202.7
 [chiang]: http://csw373.wordpress.com
-[profcode]: https://github.com/gpdowning/cs373/blob/868e4b2fca1f1540547fab8d353cf12e5e2abdec/projects/collatz/RunCollatz.in
+[profcode]: https://github.com/gpdowning/cs373/blob/868e4b2fca1f1540547fab8d353cf12e5e2abdec/projects/collatz/Collatz.py
 [Church]: http://en.wikipedia.org/wiki/Alonzo_Church
 [generator]: http://wiki.python.org/moin/Generators
 [iter]: http://docs.python.org/2/tutorial/classes.html#iterators
