@@ -95,7 +95,7 @@ let's break that down:
  - `for l in infile`: iterate through the lines of the `infile` [file-like
    object][file]
  - `map(int, l.split())`: split the line on whitespace, and convert strings to
-   numbers by apply the `int` function to each item
+   numbers by applying the `int` function to each item
  - `lambda i: len(i) == 2`: this is a function that returns true if its input
    has length of 2
  - `filter(<length is 2>, <input as int arrays>)`: this filters out everything
