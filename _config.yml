@@ -5,16 +5,16 @@ pygments: true
 
 markdown: rdiscount
 
-title : aaron stacy's writings
+title: aaron stacy's writings
 tagline: not in the face
-author :
-  name : Aaron Stacy
-  github : aaronj1335
-  twitter : "@aaronj1335"
+author:
+  name: Aaron Stacy
+  github: aaronj1335
+  twitter: "@aaronj1335"
 
-production_url : aaronstacy.com
+production_url: "http://aaronstacy.com"
 
-comments :
-  provider : disqus
-  disqus :
-    short_name : aaronstacydotcom
+comments:
+  provider: disqus
+  disqus:
+    short_name: aaronstacydotcom
