@@ -2,7 +2,6 @@
 layout: post
 title: '"triangles" or "the shape of an application"'
 author: Aaron Stacy
-description: "mv\* layout in client-side javascript applications"
 category: code
 tags: [code, javascript]
 ---

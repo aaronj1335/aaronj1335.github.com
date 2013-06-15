@@ -126,7 +126,7 @@ and above all, have fun while we're at it &#9786;
 [montagejs]: http://tetsubo.org/home/montage/
 [montagetmpl]: https://github.com/montagejs/montage/blob/master/ui/template.js#L741
 [mr]: https://github.com/kriskowal/mr
-[csi]: http://siq.github.com/csi/
+[csi]: https://github.com/aaronj1335/csi
 [ie_limit]: http://support.microsoft.com/kb/262161
 [linkonload]: http://stackoverflow.com/questions/3078584/link-element-onload
 [requirejscss]: http://requirejs.org/docs/faq-advanced.html#css
