@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "the problem with the professor's code"
+title: "CS373: the problem with the professor's code"
 author: Aaron Stacy
 category: cs373
 tags: [code, cs373, python]
 ---
 
-# {{ page.title | cs373title }}
+# the problem with the professor's code
 
 {% include byline %}
 
