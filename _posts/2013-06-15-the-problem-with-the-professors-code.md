@@ -120,10 +120,9 @@ style, and it doesn't conform to [PEP-8][pep8], [the google python
 styleguide][googlepystyle], [the python standard libraries][stdlib], or major
 community projects like [django][].
 
-before you write me off as a whiny pedant, understand the motivation for
-conforming to community conventions. this is not about nit-picking or my own
-pet preferences, **this is about attention to detail and respecting the decisions
-of the community**.
+before you write me off as a whiny pedant, understand my motivations. this is
+not about nit-picking or my own pet preferences, **this is about attention to
+detail and respecting the decisions of the community**.
 
 developers managing open source projects are very busy people. the first thing
 they'll notice in any patch you submit is whether it conforms to the style of
