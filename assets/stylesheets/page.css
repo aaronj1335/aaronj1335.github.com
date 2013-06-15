@@ -623,6 +623,11 @@ pre .status {
  * site-specific stuff
  */
 
+body {
+  font-size: 16px;
+  line-height: 1.5625em;
+}
+
 .full-width {
   width: 100%;
 }
@@ -649,7 +654,7 @@ h1 code {
 code {
   font-family: Consolas, monospace;
   border: 1px solid #bbb;
-  padding: 0 2px;
+  padding: 1px 2px -1px 0px;
   font-size: 0.9em;
   vertical-align: top;
           border-radius: 3px;
@@ -657,6 +662,9 @@ code {
   -webkit-border-radius: 3px;
   color: #333;
   text-decoration: none;
+  position: relative;
+  top: 3px;
+  padding-top: 2px;
 }
 
 a:hover code {
@@ -684,7 +692,9 @@ pre {
 pre code {
   background-color: #eee;
   border-width: 0;
-  font-size: 1.0em;
+  font-size: 0.875em;
+  line-height: 1.25em;
+  position: static;
 }
 /* for the ascetic color scheme in highlight.js */
 pre .comment,
@@ -765,26 +775,38 @@ img.me {
 
 hr {
   border-style: dotted;
+  border-color: #444;
 }
 
 html {
   margin-top: 20px;
 }
 
-
+.disclaimer {
+  padding: 1em;
+  border: 1em solid #FFCABB;
+  background-color: #FFF2E8;
+          border-radius: 1em;
+     -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  margin: 1em;
+  font-size: 0.875em;
+  line-height: 1.25em;
+}
 
 /*******************************************************************************
  * byline
  */
 
 .byline .by, .byline .on {
-  /* font-size: 0.5em; */
+  font-size: 0.875em;
   color: #777;
   font-style: italic;
   font-family: "Georgia", "Times New Roman", serif;
 }
 
 .byline .author, .byline .date, .posts .date {
+  font-size: 0.875em;
   text-transform: uppercase;
   font-family: "Georgia", "Times New Roman", serif;
 }
@@ -808,5 +830,6 @@ html {
   padding: 0.5em 0;
   margin: 20px 0;
   text-align: center;
+  font-size: 0.8em;
 }
 
