@@ -126,8 +126,8 @@ detail and respecting the decisions of the community**.
 
 developers managing open source projects are very busy people. the first thing
 they'll notice in any patch you submit is whether it conforms to the style of
-the rest of the project. sure, the patch may still be correct, but right off
-the bat it communicates that you can't be bothered to understand the
+the rest of the project. sure, the patch may be correct, but if it looks
+different it communicates that you can't be bothered to understand the
 community's preferences, so they'll probably have much less tolerance for your
 proposed changes.
 
