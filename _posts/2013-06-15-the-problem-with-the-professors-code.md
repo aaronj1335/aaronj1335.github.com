@@ -113,10 +113,10 @@ this version is better because:
 
 ## coding style
 
-you might have noticed the function inserts spaces before colons and after the
-function parameters list. additionally the file names (along with the other
-file names in the project) are capitalized. this is non-standard style, and it
-doesn't conform to [PEP-8][pep8], [the google python
+you might have noticed the professor's implementation has spaces before colons
+and after the function parameters list. additionally the file names (along with
+the other file names in the project) are capitalized. this is non-standard
+style, and it doesn't conform to [PEP-8][pep8], [the google python
 styleguide][googlepystyle], [the python standard libraries][stdlib], or major
 community projects like [django][].
 
