@@ -104,7 +104,7 @@ let's break that down:
 
 this version is better because:
 
- - it performs better by implementing a number of loop optimizations (see [this
+ - it runs faster by implementing a number of loop optimizations (see [this
    optimization anecdote][anecdote])
  - data flows in through the parameters and out through the return value,
    removing the ambiguity around which arguments are input vs. output
