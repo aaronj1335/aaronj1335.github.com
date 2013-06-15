@@ -18,4 +18,3 @@ one of the supervisors at my first job out of college had a saying:
 so far i think that's the only thing that has remained true since i've been
 doing this...
 
-<hr />

@@ -9,10 +9,6 @@
 
   <title>{{ page.title }}</title>
 
-  <link rel="stylesheet" href="/assets/stylesheets/base.css">
-  <link rel="stylesheet" href="/assets/stylesheets/skeleton.css">
-  <link rel="stylesheet" href="/assets/stylesheets/layout.css">
-  <link rel="stylesheet" href="/assets/stylesheets/highlightjs.ascetic.css">
   <link rel="stylesheet" href="/assets/stylesheets/page.css">
 </head>
 <body>
@@ -23,11 +19,55 @@
     </div>
   </div>
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
   <script src="/assets/javascript/highlight.js"></script>
   <script>
-    $(function() {
-      $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
+    /*!
+     * contentloaded.js
+     *
+     * Author: Diego Perini (diego.perini at gmail.com)
+     * License: MIT
+     * Version: 1.2
+     *
+     * URL:
+     * http://javascript.nwbox.com/ContentLoaded/
+     * http://javascript.nwbox.com/ContentLoaded/MIT-LICENSE
+     *
+     */
+
+    function contentLoaded(win, fn) {
+      var done = false, top = true,
+      doc = win.document, root = doc.documentElement,
+      add = doc.addEventListener ? 'addEventListener' : 'attachEvent',
+      rem = doc.addEventListener ? 'removeEventListener' : 'detachEvent',
+      pre = doc.addEventListener ? '' : 'on',
+      init = function(e) {
+        if (e.type == 'readystatechange' && doc.readyState != 'complete') return;
+        (e.type == 'load' ? win : doc)[rem](pre + e.type, init, false);
+        if (!done && (done = true)) fn.call(win, e.type || e);
+      },
+      poll = function() {
+        try { root.doScroll('left'); } catch(e) { setTimeout(poll, 50); return; }
+        init('poll');
+      };
+      if (doc.readyState == 'complete') fn.call(win, 'lazy');
+      else {
+        if (doc.createEventObject && root.doScroll) {
+          try { top = !win.frameElement; } catch(e) { }
+          if (top) poll();
+        }
+        doc[add](pre + 'DOMContentLoaded', init, false);
+        doc[add](pre + 'readystatechange', init, false);
+        win[add](pre + 'load', init, false);
+      }
+    }
+    contentLoaded(window, function() {
+      var codez = document.getElementsByTagName('code');
+      for (var i = 0; i < codez.length; i++) {
+        var par = codez[i].parentNode;
+        if (par.nodeName.toLowerCase() === 'pre') {
+          hljs.highlightBlock(codez[i]);
+        }
+      }
     });
   </script>
 
