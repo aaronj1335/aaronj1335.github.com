@@ -135,7 +135,8 @@ this all may still seem like hair-splitting, but remember: it's about the
 community. the community behind a technology is often more influential in
 determining its success than the language's features and performance. one of
 your first steps in adopting any technology should be getting to know its
-community, because that will have a huge impact in the long run.
+community, which affects everything from how much you can improve things to
+what type of people will be attracted to your team.
 
 ## recap
 
