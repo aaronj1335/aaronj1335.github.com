@@ -30,15 +30,14 @@ following:
 
 ### a company that fits you
 
-some people like smaller companies, some like bigger ones; you'll enjoy your
-life a lot more if you're somewhere that suits your preferences. a company's
-size and its market tend to have implications on the types of technology it
-uses. if you want to work at a startup don't put all of your eggs in the c# and
-.net basket. conversely if you want to work at a big company, don't pour all of
-your time into ruby. if you want to be a kernel hacker, then look for jobs at a
-big places making drivers. if you're convinced that sql is wrong and nosql is
-right, then work at a startup and don't try to work for a place that sells
-enterprise-y products to big customers.
+a company's size and market tend to have implications on the types of
+technology it uses. chances are you'll prefer a certain type of company, so
+look for technologies that match: if you want to work at a startup don't put
+all of your eggs in the c# and .net basket.  conversely if you want to work at
+a big company, don't spend all of your time on ruby. if you want to be a kernel
+hacker, then look for jobs at big places making device drivers. if you're
+convinced that sql is wrong and nosql is right, then work at a startup and not
+a place that sells enterprise-y products to big customers.
 
 ### longevity
 
@@ -73,13 +72,13 @@ be doing my favorite thing.
 
 for me, it came down to two offers out of college, one in the bay area and one
 in austin. i love the idea of working in the bay area because that's tech
-mecca. there's no better market for a programmer. but for a number of reasons
-austin was a better fit for my wife and i. when i made the decision it felt a
-little like choosing between what was best for my career and what was best for
-my marriage. in the end i chose the latter, and i haven't come close to
-regretting it. sometimes you fall into the trap of prioritizing a job over the
-people in your life, and that will ultimately disappoint you. so take some time
-to identify *who* it is that's most important, and then build your life around
+mecca. there's no better market for a programmer, but for a number of reasons
+austin was a better fit for my wife and i. when i made the decision it felt
+like choosing between what was best for my career and what was best for my
+marriage. in the end i chose the latter, and i haven't come close to regretting
+it. sometimes you fall into the trap of prioritizing a job over the people in
+your life, and that will ultimately disappoint you. so take some time to
+identify *who* it is that's most important, and then build your life around
 those relationships.
 
 ok. i'll stop ranting like an old person now.
