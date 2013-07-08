@@ -22,7 +22,7 @@ if you'd like to get a hold of me, [twitter is good place to start][twitter].
 # code
 
 if you're interested in my work, feel free to [browse some of my
-code][the_hubs].  i'd reccomend starting with one of these:
+code][the_hubs].  i'd recommend starting with one of these:
 
  - [`csi`][csi]: client-side package management with [`npm`][npm]
  - [t.js][tjs]: a javascript tree traversal library
