@@ -4,6 +4,16 @@ layout: default
 
 {{ content }}
 
+<div class=prev-next>
+  {% if page.previous %}
+    <a href="{{ page.previous.url }}">&larr; {{ page.previous.title }}</a>
+  {% endif %}
+
+  {% if page.next %}
+    <a class=next href="{{ page.next.url }}">{{ page.next.title }} &rarr;</a>
+  {% endif %}
+</div>
+
 {% include disqus %}
 
 {% include copy %}

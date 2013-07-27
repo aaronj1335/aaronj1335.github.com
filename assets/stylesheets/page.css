@@ -624,6 +624,7 @@ pre .status {
  */
 
 body {
+  margin-top: 20px;
   font-size: 16px;
   line-height: 1.5625em;
 }
@@ -649,6 +650,11 @@ h1 small {
 h1 code {
   text-transform: none;
   border: none;
+}
+
+hr {
+  border-style: dotted;
+  border-color: #444;
 }
 
 code {
@@ -685,10 +691,15 @@ pre {
   padding: 20px;
   overflow: auto;
   background-color: #eee;
-          border-radius: 10px;
-     -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
+          border-radius: 1em;
+     -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  border: 5px solid #555;
+          box-shadow: 0px 0px 4px #555;
+     -moz-box-shadow: 0px 0px 4px #555;
+  -webkit-box-shadow: 0px 0px 4px #555;
 }
+
 pre code {
   background-color: #eee;
   border-width: 0;
@@ -696,6 +707,7 @@ pre code {
   line-height: 1.25em;
   position: static;
 }
+
 /* for the ascetic color scheme in highlight.js */
 pre .comment,
 pre .template_comment,
@@ -707,7 +719,6 @@ pre .deletion,
 pre .apache .sqbracket {
   color: #656565;
 }
-
 
 a {
   color: #222;
@@ -746,6 +757,10 @@ ul {
   margin-left: 20px;
 }
 
+li p {
+  line-height: 1.5625em;
+}
+
 img.me {
   margin: 0 auto;
   display: block;
@@ -773,18 +788,9 @@ img.me {
        -o-transition: color 600ms;
 }
 
-hr {
-  border-style: dotted;
-  border-color: #444;
-}
-
-html {
-  margin-top: 20px;
-}
-
 .disclaimer {
   padding: 1em;
-  border: 1em solid #FFCABB;
+  border: 5px solid #FFCABB;
   background-color: #FFF2E8;
           border-radius: 1em;
      -moz-border-radius: 1em;
@@ -792,11 +798,26 @@ html {
   margin: 20px;
   font-size: 0.875em;
   line-height: 1.25em;
+          box-shadow: 0px 0px 4px #ccc;
+     -moz-box-shadow: 0px 0px 4px #ccc;
+  -webkit-box-shadow: 0px 0px 4px #ccc;
 }
 
-/*******************************************************************************
- * byline
- */
+.inset {
+  margin: 20px;
+}
+
+.inset img {
+  width: 100%;
+          box-shadow: 0px 0px 4px #555;
+     -moz-box-shadow: 0px 0px 4px #555;
+  -webkit-box-shadow: 0px 0px 4px #555;
+  border: 5px solid #555;
+          border-radius: 1em;
+     -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  box-sizing: border-box;
+}
 
 .byline .by, .byline .on {
   font-size: 0.875em;
@@ -818,10 +839,17 @@ html {
   padding: 0.5em 0;
 }
 
+.prev-next {
+  border-top-style: dotted;
+  border-bottom-style: dotted;
+  border-width: 1px 0;
+  margin-bottom: 20px;
+  padding: 10px 0;
+}
 
-/*******************************************************************************
- * copy
- */
+.prev-next .next {
+  float: right;
+}
 
 .copy {
   border-top-style: dotted;
