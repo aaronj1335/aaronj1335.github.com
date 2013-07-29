@@ -4,7 +4,6 @@ title: 'CS373: a "django" project'
 author: Aaron Stacy
 category: cs373
 tags: [javascript, cs373]
-published: false
 ---
 
 # a "django" project
