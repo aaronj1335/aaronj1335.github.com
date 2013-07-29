@@ -861,3 +861,7 @@ img.me {
   font-size: 0.8em;
 }
 
+.emoji {
+  height: 1em;
+  margin-bottom: -1px;
+}

@@ -1,6 +1,6 @@
 permalink: /writings/:title
 
-exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
+exclude: ['README.md', 'gemfile', 'Gemfile.lock']
 pygments: true
 
 markdown: rdiscount
@@ -10,11 +10,13 @@ tagline: not in the face
 author:
   name: Aaron Stacy
   github: aaronj1335
-  twitter: "@aaronj1335"
+  twitter: '@aaronj1335'
 
-production_url: "http://aaronstacy.com"
+production_url: 'http://aaronstacy.com'
 
 comments:
   provider: disqus
   disqus:
     short_name: aaronstacydotcom
+
+emoji_dir: assets/images/emoji
