@@ -35,7 +35,7 @@ requirement documentation that depend on them. i've even spent a lot of time
 writing [code to mock rest-ful api's][mock] so that i can [write proper unit
 tests][test].
 
-i think my experience of using api's more than exports may be indicitave of the
+i think my experience of using api's more than exports is indicitave of the
 industry as a whole. new products are more likely to offer an api or
 integration with an external api (twitter, facebook, google maps, etc.) than
 data export/import. it's almost too broad to compare, but i believe that with
@@ -43,7 +43,7 @@ the ubiquity of today's internet, apps tend to use an external api's more often
 than just importing/exporting their data.
 
 so i suggest that instead of an xml import/export, future assignements center
-around providing a restful json api to the data. like the existing assignment
+around providing a restful json api to the data. like the existing assignment,
 it encourages students to learn several common skills:
 
  - interacting with restful api's (more common that data export/import, i would
@@ -51,7 +51,7 @@ it encourages students to learn several common skills:
  - industry standard technologies like json, sql, and python (or maybe
    javascript&hellip;)
  - cooperating and communicating on a standard api format (still the most
-   valuable, imo, because it requires heavy a lot of interaction)
+   valuable, imo, because it fosters professional people skills)
 
 i think this approach has all of the benefits of the import/export assignment,
 but it is more relevant to the tasks students will encounter in the industry.
