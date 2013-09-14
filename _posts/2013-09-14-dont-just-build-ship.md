@@ -11,11 +11,12 @@ tags: [jqcon, ci, shipping]
 {% include byline %}
 
 i gave a talk at [jquery conference austin][jqconf] about tools that help you
-ship. the [presentation slides][slides] are a repo that demonstrates the
-concepts, namely using continuous integration to test and deploy your project
-on every commit.
+ship. the [presentation slides][slides] are [a repo][repo] that demonstrates
+the concepts, namely using continuous integration to test and deploy your
+project on every commit.
 
 enjoy!
 
 [jqconf]: http://events.jquery.org/2013/austin/
-[slides]: http://aaronstacy.com/shipit/
+[slides]: /shipit/
+[repo]: https://github.com/aaronj1335/shipit
