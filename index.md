@@ -31,12 +31,12 @@ code][the_hubs].  i'd recommend starting with one of these:
 
 # talks
 
- - [git: complex, but worth it][git-talk] ([slides][git-talk-slides]): i talked
-   to a few of [professor glen downing's][gpd] classes about git, version
-   control, and software development workflows
  - [don't just build, ship][shipit] ([slides][shipit-slides]): i gave a talk at
    [jquery conference austin][jqconf] about tools that help us ship our
    projects
+ - [git: complex, but worth it][git-talk] ([slides][git-talk-slides]): i talked
+   to a few of [professor glen downing's][gpd] classes about git, version
+   control, and software development workflows
 
 # writings
 
