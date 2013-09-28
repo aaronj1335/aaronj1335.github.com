@@ -29,6 +29,15 @@ code][the_hubs].  i'd recommend starting with one of these:
  - [the geometry of innocent signals on the wire][geom]: a school project where
    i hacked a [square][] credit card reader
 
+# talks
+
+ - [git: complex, but worth it][git-talk] ([slides][git-talk-slides]): i talked
+   to a few of [professor glen downing's][gpd] classes about git, version
+   control, and software development workflows
+ - [don't just build, ship][shipit] ([slides][shipit-slides]): i gave a talk at
+   [jquery conference austin][jqconf] about tools that help us ship our
+   projects
+
 # writings
 
 against my better judgement, i sometimes write about code and computers:
@@ -54,3 +63,9 @@ against my better judgement, i sometimes write about code and computers:
 [tjs]: http://aaronj1335.github.com/t-js/
 [geom]: https://github.com/aaronj1335/the-geometry-of-innocent-signals-on-the-wire
 [square]: https://squareup.com/
+[jqconf]: http://events.jquery.org/2013/austin/
+[gpd]: https://www.cs.utexas.edu/users/downing/
+[shipit]: https://github.com/aaronj1335/shipit
+[shipit-slides]: http://aaronstacy.com/shipit/
+[git-talk]: https://github.com/aaronj1335/git-complex-but-worth-it
+[git-talk-slides]: http://aaronstacy.com/git-complex-but-worth-it/
