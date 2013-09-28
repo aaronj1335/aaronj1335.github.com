@@ -1,14 +1,10 @@
 ---
 layout: post
-title: "CS373: functional reactive programming on the web"
+title: functional reactive programming on the web
 author: Aaron Stacy
 category: cs373
 tags: [code, cs373, javascript]
 ---
-
-# functional reactive programming on the web
-
-{% include byline %}
 
 i read [the flapjax paper][flapjax] for my software engineering class at UT. it
 presents a language and framework for functional reactive programming in
@@ -205,7 +201,7 @@ the two major downsides i see to reactive programming are:
    picture of what dependency triggered an update, one also cannot step through
    the code in a debugger.
 
-## additional work
+## related work
 
 there's a lot of folks making libraries that implement various levels of
 functional reactive programming on the web. here are a few:

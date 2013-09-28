@@ -1,14 +1,10 @@
 ---
 layout: post
-title: "CS373: semester review"
+title: semester review
 author: Aaron Stacy
 category: cs373
 tags: [cs373]
 ---
-
-# semester review
-
-{% include byline %}
 
 i've been posting each week this summer about my [software engineering
 course][cs373] that i'm taking at ut. the final writing task is to summarize

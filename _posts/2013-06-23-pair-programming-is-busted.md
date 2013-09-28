@@ -1,14 +1,10 @@
 ---
 layout: post
-title: "CS373: pair programming is busted"
+title: pair programming is busted
 author: Aaron Stacy
 category: cs373
 tags: [code, cs373, pair-programming]
 ---
-
-# pair programming is busted
-
-{% include byline %}
 
 this week in [my software engineering course][se] we covered a number of topics
 including pair programming. we had to read [three][kindergarten]

@@ -1,14 +1,10 @@
 ---
 layout: post
-title: "CS373: deploying your app to heroku"
+title: deploying your app to heroku
 author: Aaron Stacy
 category: cs373
 tags: [devops, cs373]
 ---
-
-# deploying your app to heroku
-
-{% include byline %}
 
 in my summer software engineering course we're making a website of information
 about world crises using [django][]. we were experiencing some trouble with

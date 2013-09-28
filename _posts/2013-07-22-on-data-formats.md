@@ -1,14 +1,10 @@
 ---
 layout: post
-title: "CS373: on data formats"
+title: on data formats
 author: Aaron Stacy
 category: cs373
 tags: [dataformats, cs373]
 ---
-
-# on data formats
-
-{% include byline %}
 
 a significant portion of the first big group project in my software engineering
 course was deciding on a data format and schema. we were required to use

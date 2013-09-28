@@ -7,10 +7,6 @@ category: code
 tags: [code, javascript]
 ---
 
-# why can't i just `require('bootstrap')`?
-
-{% include byline %}
-
 if you're a client-side developer and you've had the chance to spend any time doing [`node.js`][nodejs] development, it's easy to appreciate the module system. suddenly you don't have to care that package A depends on B depends on C, etc. you just `require()` the code you need, and everything is cool.
 
 if you're going the other way, from environments like node, ruby, python, etc. to the client-side, you're probably be even *more* aware of the pain of manually dependency management since you got used to life with it built in to the runtime.

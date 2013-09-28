@@ -1,14 +1,10 @@
 ---
 layout: post
-title: "CS373: artefactual knowledge"
+title: artefactual knowledge
 author: Aaron Stacy
 category: cs373
 tags: [cs373]
 ---
-
-# artefactual knowledge
-
-{% include byline %}
 
 the professor of my software engineering course has delivered a lot of lectures
 on python and sql. he does an excellent job of walking us through the

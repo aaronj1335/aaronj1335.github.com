@@ -1,14 +1,10 @@
 ---
 layout: post
-title: "CS373: don't screw this up"
+title: don't screw this up
 author: Aaron Stacy
 category: cs373
 tags: [advice, cs373]
 ---
-
-# don't screw this up
-
-{% include byline %}
 
 i'm in an undergrad software engineering course right now, even though i've
 been a professional software engineer for four years (long story i guess…).

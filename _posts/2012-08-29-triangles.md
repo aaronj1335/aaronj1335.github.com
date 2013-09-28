@@ -1,6 +1,7 @@
 ---
 layout: post
 title: '"triangles" or "the shape of an application"'
+custom_header: true
 author: Aaron Stacy
 category: code
 tags: [code, javascript]

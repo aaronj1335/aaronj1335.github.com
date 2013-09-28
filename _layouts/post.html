@@ -2,6 +2,24 @@
 layout: default
 ---
 
+{% unless page.custom_header %}
+  <h1>{{ page.title }}</h1>
+
+  {% include byline %}
+{% endunless %}
+
+{% if page.tags contains 'cs373' %}
+
+<p class=cs373-note>
+
+  this is part of a series of posts i wrote for my
+  <a href="https://www.cs.utexas.edu/users/downing/cs373/drupal/">software
+  engineering course</a> at university of texas.
+
+</p>
+
+{% endif %}
+
 {% if page.emojify %}
   {{ content | emojify }}
 {% else %}

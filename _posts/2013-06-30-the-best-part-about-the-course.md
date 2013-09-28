@@ -1,14 +1,10 @@
 ---
 layout: post
-title: "CS373: the best part about the course"
+title: the best part about the course
 author: Aaron Stacy
 category: cs373
 tags: [code, cs373]
 ---
-
-# the best part about the course
-
-{% include byline %}
 
 i think my summer software engineering course is excellent. i've written a
 [couple][problem] [posts][busted] that may suggest otherwise, but those are

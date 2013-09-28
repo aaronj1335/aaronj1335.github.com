@@ -865,3 +865,14 @@ img.me {
   height: 1em;
   margin-bottom: -1px;
 }
+
+.cs373-note {
+  padding: 1em;
+  background-color: #eee;
+            box-shadow: inset 0 0 10px #aaa;
+       -moz-box-shadow: inset 0 0 10px #aaa;
+    -webkit-box-shadow: inset 0 0 10px #aaa;
+          border-radius: 7px;
+     -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+}

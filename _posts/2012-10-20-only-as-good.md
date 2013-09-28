@@ -7,10 +7,6 @@ category: code
 tags: [code]
 ---
 
-# only as good
-
-{% include byline %}
-
 one of the supervisors at my first job out of college had a saying:
 
 > the code is only as good as the developer standing behind it

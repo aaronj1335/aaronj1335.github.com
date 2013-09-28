@@ -1,14 +1,10 @@
 ---
 layout: post
-title: 'CS373: a "django" project'
+title: 'a "django" project'
 author: Aaron Stacy
 category: cs373
 tags: [javascript, cs373]
 ---
-
-# a "django" project
-
-{% include byline %}
 
 the [big group project][reqs] in my software engineering course involves
 creating:

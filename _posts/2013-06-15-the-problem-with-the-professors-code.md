@@ -1,14 +1,10 @@
 ---
 layout: post
-title: "CS373: the problem with the professor's code"
+title: the problem with the professor's code
 author: Aaron Stacy
 category: cs373
 tags: [code, cs373, python]
 ---
-
-# the problem with the professor's code
-
-{% include byline %}
 
 the first project for [my software engineering class at UT][cs373] was to
 submit solutions for the [collatz conjecture][conjecture] to [a system called

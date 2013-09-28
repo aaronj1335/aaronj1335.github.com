@@ -1,14 +1,10 @@
 ---
 layout: post
-title: "CS373: api's vs exports"
+title: "api's vs exports"
 author: Aaron Stacy
 category: cs373
 tags: [apis, cs373]
 ---
-
-# api's vs exports
-
-{% include byline %}
 
 in my software engineering course we had to make a website of information about
 world crises. a large portion of the project was exporting the data to xml and
