@@ -13,7 +13,7 @@ more][bible]).
 
 texas is home now, but i'm originally from indiana. i graduated from [purdue
 university’s computer engineering program][puece] in 2009, and now i'm working
-on a [mater's in computer science at university of texas][utcs]. i also spent
+on a [master's in computer science at university of texas][utcs]. i also spent
 several years in the marine corps, during which i had the opportunity to serve
 overseas with [an exemplary reserve unit][det1comm].
 
