@@ -7,8 +7,8 @@ tagline: not in the face
 <img class=me src="/assets/images/aaron.jpg" />
 
 i am a 27 year old software developer living in [austin, texas][where], and i
-am currently employed by [waterfall mobile][employer]. i am happily married to
-a beautiful girl named ashly, and i’m a follower of Jesus Christ ([read
+am currently employed by [waterfall][employer]. i am happily married to a
+beautiful girl named ashly, and i’m a follower of Jesus Christ ([read
 more][bible]).
 
 texas is home now, but i'm originally from indiana. i graduated from [purdue
