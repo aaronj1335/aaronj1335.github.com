@@ -50,6 +50,7 @@ against my better judgement, i sometimes write about code and computers:
 
 <div class=here-be-pyrates>☠</div>
 
+
 [where]: https://maps.google.com/?ll=30.317321,-97.748709&spn=0.076612,0.055189&t=m&z=14
 [employer]: http://www.waterfallmobile.com
 [bible]: http://biblia.com/books/esv/Jn13.35
