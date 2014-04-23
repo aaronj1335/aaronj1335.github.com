@@ -2,14 +2,14 @@
 layout: post
 title: there is nothing new under the sun
 author: Aaron Stacy
+notes: .this can be easily dismissed with "right tool for the right job", but my point is the right tool, even when you need perf (c++), is still too complex.  this article has two different points, 1. there's nothing new, and 2. c++ is too complex. it should only have one point.
 published: false
 ---
 
 i've had the opportunity to do [some][hw3] [c++][proj] lately, and i've been
-reading up on iterator concepts, specifically boost's [iterator facade][]. i
-couldn't help but notice the similarities between [incrementable iterators][]
-and the generators found in [python][pygenerators] and now
-[javascript][es6generators].
+reading up on [boost iterators][iterator facade]. i couldn't help but notice
+the similarities between [incrementable iterators][] and the generators found
+in [python][pygenerators] and now [javascript][es6generators].
 
 c++ iterators are more complex than generators though.  they introduce a
 [heirarchy of concepts][concepts] that provides more control. they (at least
