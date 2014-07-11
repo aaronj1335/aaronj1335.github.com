@@ -21,7 +21,7 @@ in a good mvc app the state is in the model, so let's look at how we can use frp
 
 ## spaghetti
 
-we'll start with an example of a simon-says game<a href=#footnote-1><sup>1</sup></a>, implemented in RxJS, but without any separation of concerns.
+we'll start with an example of a simon-says game<a href=#footnote-1><sup>1</sup></a>, implemented in [RxJS][], but without any separation of concerns.
 
 the game will show the user a sequence of numbers and a set of numbered buttons. the player pushes the buttons in the order of the numbers. they win if they get them all correct, otherwise it's a loss. they can restart the game at any time. here's an example:
 
