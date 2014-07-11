@@ -15,7 +15,7 @@ it's surprising that such succinct code can accomplish such messy tasks with so 
 - isolate your application state
 - don't repeat yourself
 
-frp should be combined with the solid design patterns we know from mvc<a href=#footnote-0><sup>0</sup></a>. while those little demos seem to imply that frp supplants mvc, the two quite different. frp proposes a small set of primitives for managing state with data flow, whereas mvc separates application concerns.
+frp should be combined with the design patterns we know from mvc<a href=#footnote-0><sup>0</sup></a>. while those little demos seem to imply that frp supplants mvc, the two quite different. frp proposes a small set of primitives for managing state with data flow, whereas mvc separates application concerns.
 
 in a good mvc app the state is in the model, so let's look at how we can use frp for the "M" and keep that separate from the "V".
 
