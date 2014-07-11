@@ -876,3 +876,15 @@ img.me {
      -moz-border-radius: 7px;
   -webkit-border-radius: 7px;
 }
+
+.reactive-simon-game {
+  border: 1px solid black;
+  border-style: dotted;
+  margin: 0 auto 20px auto;
+  display: block;
+}
+
+sup {
+  vertical-align: super;
+  font-size: smaller;
+}
