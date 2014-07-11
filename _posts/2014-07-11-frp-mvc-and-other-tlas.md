@@ -165,13 +165,11 @@ there's one more subtlety. the `observable` variable will produce a new value fo
     // => [0, 1, 3, 2]
     // => second subscription: [3, 3, 0, 1]
 
-in cases where the behavior is deterministic, this would be preferable, since it insulates us from accidentally sharing data. however in this case we want every subscription to get the same value, so we'll publish the `Observable`.
+in cases where the behavior is deterministic, this would be preferable, since it insulates us from accidentally sharing data. however in this case we want every subscription to get the same value, so we'll share the `Observable`.
 
     var subject = new Rx.Subject();
     var observable = subject.map(createArrayOfRandomNumbers)
-      .publish();
-    observable.connect();
-
+      .share();
     var newGameStream = Rx.Subject.create(subject, observable);
     newGameStream.subscribe(console.log);
     newGameStream.subscribe(console.log.bind(console, 'second subscription:'));
