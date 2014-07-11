@@ -1,10 +1,10 @@
 ---
 layout: post
-title: frp, mvc, and other tla's
+title: reactive programming and mvc
 author: Aaron Stacy
 ---
 
-functional reactive programming (frp) demos are impressive. two of my favorites are:
+reactive programming demos are impressive. two of my favorites are:
 
 - the [flapjax paper][flapjax]'s [example of drag and drop][flapjax-dnd]
 - [jafar husain][]'s example of [an auto-complete widget][netflix-autocomplete]
@@ -15,9 +15,9 @@ it's surprising that such succinct code can accomplish such messy tasks with so 
 - isolate your application state
 - don't repeat yourself
 
-frp should be combined with the design patterns we know from mvc<a href=#footnote-0><sup>0</sup></a>. while those little demos seem to imply that frp supplants mvc, the two quite different. frp proposes a small set of primitives for managing state with data flow, whereas mvc separates application concerns.
+reactive programming should be combined with the design patterns we know from mvc<a href=#footnote-0><sup>0</sup></a>. while those little demos seem to imply that reactive programming supplants mvc, the two quite different. reactive programming proposes a small set of primitives for managing state with data flow, whereas mvc separates application concerns.
 
-in a good mvc app the state is in the model, so let's look at how we can use frp for the "M" and keep that separate from the "V".
+in a good mvc app the state is in the model, so let's look at how we can use reactive programming for the "M" and keep that separate from the "V".
 
 ## spaghetti
 
@@ -101,7 +101,7 @@ the code can be found in [`spaghetti/index.js`][spaghetti-index], but i've extra
       // subscribe or forEach
       .subscribe();
 
-true to form this implements the game succinctly using common frp idioms, all built on one abstraction: the event stream (or `Observer` in RxJS parlance). it doesn't have the familiar looking class or view definitions we're used to seeing in popular mvc frameworks, but it's got all those side-effect free functions&hellip; surely this code that would garner a nod of approval from functional purists, right? this code doesn't feel right though. it's mixing our application's data model (the order of the numbers, the results of the games) with displaying the data.
+true to form this implements the game succinctly using common reactive programming idioms, all built on one abstraction: the event stream (or `Observer` in RxJS parlance). it doesn't have the familiar looking class or view definitions we're used to seeing in popular mvc frameworks, but it's got all those side-effect free functions&hellip; surely this code that would garner a nod of approval from functional purists, right? this code doesn't feel right though. it's mixing our application's data model (the order of the numbers, the results of the games) with displaying the data.
 
 it's the jquery spaghetti of functional javascript.
 
@@ -181,9 +181,9 @@ a similar approach can be applied to the stream of results, allowing us to decou
 
 ## tight views coupled loosely
 
-the repo has the full listing of an frp-driven model for this game in [`lib/common.js`][model], and examples of using it with [plain js views][vanilla-view] and [react][react-view].
+the repo has the full listing of an reactive-programming-driven model for this game in [`lib/common.js`][model], and examples of using it with [plain js views][vanilla-view] and [react][react-view].
 
-this design enables simple views responsible for nothing beyond converting the data to DOM. the views are modular and testable, and the model doesn't need to be modified for every new feature. we're reaping the benefits of frp while maintaining mvc's separation of concerns.
+this design enables simple views responsible for nothing beyond converting the data to DOM. the views are modular and testable, and the model doesn't need to be modified for every new feature. we're reaping the benefits of reactive programming while maintaining mvc's separation of concerns.
 
 <a name=footnote-0>[0]</a>: there are different flavors of mvc, and this article is mostly concerned with the model and view, so i'm using "mvc" as a generic term.
 
