@@ -104,8 +104,9 @@ iterators are little more than an interface, or a formalized convention. i was
 surprised by how readable [the iterators spec][iterspec] is. it's basically got
 three parts.
 
-- `Iterable`'s: anything with a specifically-named function that creates an iterator
-- `Iterator`'s: objects with a `next` method that produce items
+- `Iterable`'s: anything with a specifically-named function that creates an
+  iterator
+- `Iterator`'s: objects with a `next` method that produces items
 - `IterableResult`'s: objects with a value and a "done" flag
 
 so let's make an iterable. if you're not familiar with the idea of [symbols][],
@@ -125,10 +126,40 @@ specific string.
     };
     var iterator = iterable[Symbol.iterator]();
 
-    iterator.next()  // -> {value: 'item 1', done: false}
-    iterator.next()  // -> {value: 'item 2', done: false}
-    iterator.next()  // -> {value: 'item 3', done: false}
-    iterator.next()  // -> {value: undefined, done: true}
+    iterator.next(); // -> {value: 'item 1',  done: false}
+    iterator.next(); // -> {value: 'item 2',  done: false}
+    iterator.next(); // -> {value: 'item 3',  done: false}
+    iterator.next(); // -> {value: undefined, done: true}
+
+the above code isn't very interesting, but interesting things happen when
+everyone agrees on the interface. if underscore supported es6 iterators, we
+could use all of those familiar functions on anything we make &mdash; graphs,
+database cursors, infinite sequences, etc.
+
+## one more thing&hellip;
+
+though it is instructive to think how these features affect a single library,
+there are bigger possibilities when generators and iterators are combined.
+rather than use built-ins like `for`, javascript developers tend work around
+syntax with libraries like underscore. but es6 affords us the opportunity to
+work with the language in new ways.
+
+wouldn't it be nice if we could just loop over a jquery collection using the
+same `for` loops that are taught in CS 101? with es6 it's pretty easy. first we
+make the jquery object an iterable. generators are a really succinct ways to
+write functions that return iterators:
+
+
+    jQuery.prototype[Symbol.iterator] = function* iterator() {
+      for (var i = 0; i < this.length; i++)
+        yield $(this.get(i));
+    }
+
+now remember that `of` keyword? well it turns out that it knows how to iterate
+over any iterable, so now we can use simple `for` loops on jquery objects:
+
+    for (var p of $('p'))
+      p.fadeOut();
 
 [austinjs]: http://austinjavascript.com/july-15th-meetup-730-pm-lightning-talks/
 [es6]: http://wiki.ecmascript.org/doku.php?id=harmony:specification_drafts
