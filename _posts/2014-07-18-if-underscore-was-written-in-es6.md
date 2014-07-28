@@ -2,25 +2,24 @@
 layout: post
 title: if underscore was written in es6 javascript
 author: Aaron Stacy
-published: false
 ---
 
 <aside>
-  i was originally going to give this as a lightning talk at [austinjs][], but
-  i ran out of time because we had so many good talks. so i'll post it here
-  instead.
+  i was originally going to present this at [austinjs][], but i ran out of time
+  because we had so many good lightning talks. so i'll post it here instead.
 </aside>
 
 > what if [underscore][] (or [lodash][] for that matter) was written in [es6][]?
 
-certainly there would be a number of changes to the code. features like
-[destructuring assignments][] and [the spread operator][] would enhance
-readability. but would the interface be different? i think so.
+features like [destructuring assignments][] and [the spread operator][] would
+certainly make the code more readable. but would the interface be different? i
+think so. i'll demonstrate why by discussing a couple issues with underscore's
+current implementation.
 
-now to be clear i think underscore is not just a good library, it's an inspired
-library. the point of this article is how new features in es6 solve problems
-that we've got today, not to imply there's some problem with "javascript's
-utility belt".
+now i'm not trying to get down on underscore. it's a great library &mdash; an
+inspired library. but this article is about how new features in es6 solve
+problems we've got today, and underscore provides a context with which a lot of
+us are familiar.
 
 ## issue #1: intermediate arrays
 
@@ -33,10 +32,10 @@ objects:
 
 this is good code. it separates business concerns (like getting a user's age
 and determining whether they're active) from the mechanism of iterating over
-the arrays (this is [a thing][sepofpolicyandmechanism]). and it's actually
-common to have pipelines of underscore functions like this. so common in fact,
-underscore and lodash provide [a chaining functionality][chain] to reduce some
-boilerplate.
+the arrays (this is [a thing][sepofpolicyandmechanism]). depending on the
+amount of data-munging you've got to do, these pipelines of functions can grow
+deeper, and it's actually so common that underscore and lodash provide [a
+chaining functionality][chain] to reduce some boilerplate.
 
 the problem is that a lot of the steps you would have in these chains like
 `map`, `filter`, `flatten`, etc. produce intermediate arrays. that's wasted
@@ -68,9 +67,8 @@ there are no `return`'s because we already know generator functions return
 lazily-computed collections. the items of the collection are determined by
 those `yield` statements.
 
-the discerning reader will also notice that `of` keyword. if you're not
-familiar with es6 `of` then for now just know that it does exactly what you
-would expect. more on that later.
+if you're not familiar with the es6 `of` keyword, then don't worry. just know
+that it does exactly what you would expect in this code.
 
 `reduce` returns a single item, so it's not a generator function. with these
 new functions our code looks nearly identical, but it doesn't create
@@ -87,27 +85,27 @@ es6 allows us to write maintainable code without sacrificing performance.
 the underscore documentation page is familiar to a lot of javascript
 developers. notice that section of functions that includes `map` and `set`:
 
-![underscore documentation page][underscoredocs]
+<img src="/assets/images/underscore-dot-org.png" style="width: 100%;" />
 
 it's titled "Collections". what's a "Collection"? is it an `Array`? is it any
 `Object`? does it include new es6 data structures like [`Set`][set] and
-[`Map`][map]? can i use these functions with data structures i define, like
-maybe a tree or graph?
+[`Map`][map]? can i use these functions with data structures i define, like a
+tree or graph?
 
-well of course we could, we would just convert any of the above into an array,
-and pass that in as the first argument, but now we're back to our first issue
-of unnecessary intermediate arrays.
+of course we could convert any of the above into an array and pass that in as
+the first argument, but now we're back to our first issue of unnecessary
+intermediate arrays.
 
 ## solution to issue #2: iterators
 
-iterators are little more than an interface, or a formalized convention. i was
-surprised by how readable [the iterators spec][iterspec] is. it's basically got
-three parts.
+iterators are simply an interface, or a formalized convention. i was surprised
+by how readable [the iterators spec][iterspec] is. it's basically got three
+parts.
 
-- `Iterable`'s: anything with a specifically-named function that creates an
-  iterator
-- `Iterator`'s: objects with a `next` method that produces items
-- `IterableResult`'s: objects with a value and a "done" flag
+- `Iterable`: an object with a specifically-named function that creates an
+  `Iterator`
+- `Iterator`: an object with a `next` method that produces items
+- `IterableResult`: an object with a value and a "done" flag
 
 so let's make an iterable. if you're not familiar with the idea of [symbols][],
 then just pretend that `Symbol.iterator` is a regular variable referencing some
@@ -132,22 +130,21 @@ specific string.
     iterator.next(); // -> {value: undefined, done: true}
 
 the above code isn't very interesting, but interesting things happen when
-everyone agrees on the interface. if underscore supported es6 iterators, we
+everyone agrees on this interface. if underscore supported es6 iterators, we
 could use all of those familiar functions on anything we make &mdash; graphs,
 database cursors, infinite sequences, etc.
 
 ## one more thing&hellip;
 
-though it is instructive to think how these features affect a single library,
-there are bigger possibilities when generators and iterators are combined.
-rather than use built-ins like `for`, javascript developers tend work around
-syntax with libraries like underscore. but es6 affords us the opportunity to
-work with the language in new ways.
+javascript developers often use libraries like undescore to supplant the
+language's syntax. we prefer functions like `_.each` because the `for` loop
+isn't flexible enough. es6 gives us a way to work with the language syntax
+though.
 
-wouldn't it be nice if we could just loop over a jquery collection using the
-same `for` loops that are taught in CS 101? with es6 it's pretty easy. first we
-make the jquery object an iterable. generators are a really succinct ways to
-write functions that return iterators:
+wouldn't it be nice if we could loop over a jquery collection using a plain old
+`for` loop? with es6 it's pretty easy. first we make the jquery object an
+iterable. generators are a really succinct way to write functions that return
+iterators:
 
 
     jQuery.prototype[Symbol.iterator] = function* iterator() {
@@ -155,11 +152,29 @@ write functions that return iterators:
         yield $(this.get(i));
     }
 
-now remember that `of` keyword? well it turns out that it knows how to iterate
-over any iterable, so now we can use simple `for` loops on jquery objects:
+now remember that `of` keyword? `of` knows how to iterate over any iterable, so
+now we can use simple `for` loops on jquery objects:
 
     for (var p of $('p'))
       p.fadeOut();
+
+(h/t to [dave herman for this one][littlecalculist]).
+
+and what if we want to have the index of each item (like the second parameter
+of the `_.each` callback)? we can borrow from python's
+[`enumerate`][enumerate]:
+
+    function* enumerate(iterator) {
+      var i = 0;
+
+      for (var item of iterator)
+        yield [i++, item];
+    }
+
+    for (var [i, p] of enumerate($('p')))
+      console.log('paragraph number ' + (i + 1) + ': ', p);
+
+interesting possibilities emerge when we combine these new es6 features.
 
 [austinjs]: http://austinjavascript.com/july-15th-meetup-730-pm-lightning-talks/
 [es6]: http://wiki.ecmascript.org/doku.php?id=harmony:specification_drafts
@@ -174,3 +189,6 @@ over any iterable, so now we can use simple `for` loops on jquery objects:
 [map]: http://www.nczonline.net/blog/2012/10/09/ecmascript-6-collections-part-2-maps/
 [iterspec]: https://people.mozilla.org/~jorendorff/es6-draft.html#sec-common-iteration-interfaces
 [symbols]: https://people.mozilla.org/~jorendorff/es6-draft.html#sec-ecmascript-language-types-symbol-type
+[underscoredocs]: /assets/images/underscore-dot-org.png
+[enumerate]: https://docs.python.org/2/library/functions.html#enumerate
+[littlecalculist]: http://tc39wiki.calculist.org/es6/iterators/
