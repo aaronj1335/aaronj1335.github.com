@@ -35,22 +35,24 @@ and determining whether they're active) from the mechanism of iterating over
 the arrays (this is [a thing][sepofpolicyandmechanism]). depending on the
 amount of data-munging you've got to do, these pipelines of functions can grow
 deeper, and it's actually so common that underscore and lodash provide [a
-chaining functionality][chain] to reduce some boilerplate.
+chaining functionality][chain] to reduce boilerplate.
 
 the problem is that a lot of the steps you would have in these chains like
 `map`, `filter`, `flatten`, etc. produce intermediate arrays. that's wasted
 memory that may not be a problem in typical browser applications, but when
 we're talking about the scale of map-reduce workloads that [made a certain
-search engine successful][mapreduce], these inefficiencies start to add up. so
-it would be nice if javascript provided a way to write the above code so it's
-both maintainable and efficient.
+search engine successful][mapreduce], these inefficiencies add up. so it would
+be nice if javascript provided a way to write the above code so it's both
+maintainable and efficient.
 
 ## solution to issue #1: generators
 
 let's rewrite the `map` and `filter` functions as generator functions. you can
 think of generators as functions that return lazily-computed collections. so
 when you call a generator function, it returns an object that will provide each
-element of the collection. here's map and filter:
+element of the collection.
+
+here's map and filter:
 
     function* map(items, transform) {
       for (item of items)
@@ -63,12 +65,12 @@ element of the collection. here's map and filter:
           yield item;
     }
 
-there are no `return`'s because we already know generator functions return
+there are no `return`'s since, as we know, generator functions return
 lazily-computed collections. the items of the collection are determined by
 those `yield` statements.
 
-if you're not familiar with the es6 `of` keyword, then don't worry. just know
-that it does exactly what you would expect in this code.
+if you're not familiar with the es6 `of` keyword, then don't worry. it does
+exactly what you would expect in this code.
 
 `reduce` returns a single item, so it's not a generator function. with these
 new functions our code looks nearly identical, but it doesn't create
@@ -83,7 +85,7 @@ es6 allows us to write maintainable code without sacrificing performance.
 ## issue #2: new data types
 
 the underscore documentation page is familiar to a lot of javascript
-developers. notice that section of functions that includes `map` and `set`:
+developers. notice that section of functions that includes `map` and `filter`:
 
 <img src="/assets/images/underscore-dot-org.png" style="width: 100%;" />
 
@@ -107,7 +109,7 @@ parts.
 - `Iterator`: an object with a `next` method that produces items
 - `IterableResult`: an object with a value and a "done" flag
 
-so let's make an iterable. if you're not familiar with the idea of [symbols][],
+so let's make an iterator. if you're not familiar with the idea of [symbols][],
 then just pretend that `Symbol.iterator` is a regular variable referencing some
 specific string.
 
@@ -129,22 +131,22 @@ specific string.
     iterator.next(); // -> {value: 'item 3',  done: false}
     iterator.next(); // -> {value: undefined, done: true}
 
-the above code isn't very interesting, but interesting things happen when
-everyone agrees on this interface. if underscore supported es6 iterators, we
-could use all of those familiar functions on anything we make &mdash; graphs,
-database cursors, infinite sequences, etc.
+the code isn't very interesting, but interesting things happen when everyone
+agrees on this interface. if underscore supported es6 iterators, we could use
+all of those familiar functions on anything we make &mdash; graphs, database
+cursors, infinite sequences, etc.
 
 ## one more thing&hellip;
 
-javascript developers often use libraries like undescore to supplant the
+javascript developers often use libraries like underscore to supplant the
 language's syntax. we prefer functions like `_.each` because the `for` loop
 isn't flexible enough. es6 gives us a way to work with the language syntax
 though.
 
 wouldn't it be nice if we could loop over a jquery collection using a plain old
-`for` loop? with es6 it's pretty easy. first we make the jquery object an
-iterable. generators are a really succinct way to write functions that return
-iterators:
+`for` loop, without worrying about an index variable? with es6 it's pretty
+easy. first we make the jquery object an iterable. generators are a really
+succinct way to write functions that return iterators:
 
 
     jQuery.prototype[Symbol.iterator] = function* iterator() {
@@ -158,7 +160,7 @@ now we can use simple `for` loops on jquery objects:
     for (var p of $('p'))
       p.fadeOut();
 
-(h/t to [dave herman for this one][littlecalculist]).
+(h/t to [dave herman for this example][littlecalculist]).
 
 and what if we want to have the index of each item (like the second parameter
 of the `_.each` callback)? we can borrow from python's
@@ -174,7 +176,8 @@ of the `_.each` callback)? we can borrow from python's
     for (var [i, p] of enumerate($('p')))
       console.log('paragraph number ' + (i + 1) + ': ', p);
 
-interesting possibilities emerge when we combine these new es6 features.
+combining generators and iterators makes the features more compelling than they
+are alone.
 
 [austinjs]: http://austinjavascript.com/july-15th-meetup-730-pm-lightning-talks/
 [es6]: http://wiki.ecmascript.org/doku.php?id=harmony:specification_drafts
