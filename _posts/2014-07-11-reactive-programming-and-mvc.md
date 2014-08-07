@@ -15,7 +15,7 @@ it's surprising that such succinct code can accomplish such messy tasks with so 
 - isolate your application state
 - don't repeat yourself
 
-reactive programming should be combined with the design patterns we know from mvc<a href=#footnote-0><sup>0</sup></a>. while those little demos seem to imply that reactive programming supplants mvc, the two quite different. reactive programming proposes a small set of primitives for managing state with data flow, whereas mvc separates application concerns.
+reactive programming should be combined with the design patterns we know from mvc<a href=#footnote-0><sup>0</sup></a>. while those little demos seem to imply that reactive programming supplants mvc, the two are quite different. reactive programming proposes a small set of primitives for managing state with data flow, whereas mvc separates application concerns.
 
 in a good mvc app the state is in the model, so let's look at how we can use reactive programming for the "M" and keep that separate from the "V".
 
@@ -125,7 +125,7 @@ the code above doesn't meet any of these.
 
 the underlying data model of this application could look something like this:
 
-- a stream of "new games" which are represented by an array of numbers in order that the player must match
+- a stream of "new games", each of which are represented by an array of numbers that the player must match
 - a stream of results, which include both the original order and the buttons the player pressed
 
 the new game stream can't just be hard-coded to come from a single button's clicks though. we need a level of indirection where any event stream can be connected or disconnected from the new game stream dynamically.
@@ -181,7 +181,7 @@ a similar approach can be applied to the stream of results, allowing us to decou
 
 ## tight views coupled loosely
 
-the repo has the full listing of an reactive-programming-driven model for this game in [`lib/common.js`][model], and examples of using it with [plain js views][vanilla-view] and [react][react-view].
+the repo has the full listing of a reactive-programming-driven model for this game in [`lib/common.js`][model], and examples of using it with [plain js views][vanilla-view] and [react][react-view].
 
 this design enables simple views responsible for nothing beyond converting the data to DOM. the views are modular and testable, and the model doesn't need to be modified for every new feature. we're reaping the benefits of reactive programming while maintaining mvc's separation of concerns.
 
