@@ -6,16 +6,16 @@ tagline: not in the face
 
 <img class=me src="/assets/images/aaron.jpg" />
 
-i am a 27 year old software developer living in [austin, texas][where], and i
-am currently employed by [waterfall][employer]. i am happily married to a
-beautiful girl named ashly, and i’m a follower of Jesus Christ ([read
-more][bible]).
+i am a <span id=my-age>29</span> year old software developer living in [austin,
+texas][where], and i am currently employed by [waterfall][employer]. i am
+happily married to a beautiful girl named ashly, and i’m a follower of Jesus
+Christ ([read more][bible]).
 
 texas is home now, but i'm originally from indiana. i graduated from [purdue
-university’s computer engineering program][puece] in 2009, and now i'm working
-on a [master's in computer science at university of texas][utcs]. i also spent
-several years in the marine corps, during which i had the opportunity to serve
-overseas with [an exemplary reserve unit][det1comm].
+university’s computer engineering program][puece] in 2009, and then got a
+master's degree in computer science from [university of texas][utcs]. i also
+spent several years in the marine corps, during which i had the opportunity to
+serve overseas with [an exemplary reserve unit][det1comm].
 
 if you'd like to get a hold of me, [twitter is good place to start][twitter].
 
