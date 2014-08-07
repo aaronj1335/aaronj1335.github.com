@@ -16,7 +16,7 @@ certainly make the code more readable. but would the interface be different? i
 think so. i'll demonstrate why by discussing a couple issues with underscore's
 current implementation.
 
-now i'm not trying to get down on underscore. it's a great library &mdash; an
+now i'm not trying to hate on underscore. it's a great library &mdash; an
 inspired library. but this article is about how new features in es6 solve
 problems we've got today, and underscore provides a context with which a lot of
 us are familiar.
