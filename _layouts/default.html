@@ -72,9 +72,10 @@
 
       var age = new Date().getFullYear() - new Date(1985, 4, 11).getFullYear();
       var $age = document.getElementById('my-age')
-      var accessor = $age.textContent? 'textContent' : 'innerText';
-
-      $age[accessor] = age;
+      if ($age) {
+        var accessor = $age.textContent? 'textContent' : 'innerText';
+        $age[accessor] = age;
+      }
     });
   </script>
 
