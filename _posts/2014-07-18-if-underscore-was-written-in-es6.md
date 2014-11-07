@@ -9,6 +9,9 @@ author: Aaron Stacy
   because we had so many good lightning talks. so i'll post it here instead.
 </aside>
 
+***UPDATE:*** parts of this became out-of-date with the introduction of [lodash's
+lazy evluation][lazydash].
+
 > what if [underscore][] (or [lodash][] for that matter) was written in [es6][]?
 
 features like [destructuring assignments][] and [the spread operator][] would
@@ -195,3 +198,4 @@ are alone.
 [underscoredocs]: /assets/images/underscore-dot-org.png
 [enumerate]: https://docs.python.org/2/library/functions.html#enumerate
 [littlecalculist]: http://tc39wiki.calculist.org/es6/iterators/
+[lazydash]: https://github.com/lodash/lodash/issues/274#issuecomment-57593441
