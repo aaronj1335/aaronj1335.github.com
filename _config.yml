@@ -1,7 +1,7 @@
 permalink: /writings/:title
 
 exclude: ['README.md', 'gemfile', 'Gemfile.lock']
-highlighter: true
+highlighter: pygments
 
 markdown: rdiscount
 
