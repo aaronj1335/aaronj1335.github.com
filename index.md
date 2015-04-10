@@ -42,7 +42,7 @@ code][the_hubs].  i'd recommend starting with one of these:
 
 against my better judgement, i sometimes write about code and computers:
 
-<ul class="posts">
+<ul class="posts none">
   {% for post in site.posts %}
     <li><span class=date>{{ post.date | date: "%d %B, %Y" }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}

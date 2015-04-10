@@ -742,8 +742,12 @@ a:hover, a:focus {
 }
 
 ul {
-  list-style: none outside;
+  list-style: disc outside;
   margin-left: 20px;
+}
+
+ul.none {
+  list-style: none outside;
 }
 
 li p {
