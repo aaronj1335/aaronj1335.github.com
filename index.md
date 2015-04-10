@@ -7,9 +7,9 @@ tagline: not in the face
 <img class=me src="/assets/images/aaron.jpg" />
 
 i am a <span id=my-age>29</span> year old software developer living in [austin,
-texas][where], and i am currently employed by [waterfall][employer]. i am
-happily married to a beautiful girl named ashly, and i’m a follower of Jesus
-Christ ([read more][bible]).
+texas][where], and i am currently employed by [a notable e-retailer][employer].
+i am married to a pretty girl named ashly, the most interesting man i've ever
+met is [this guy][], and i’m a follower of Jesus Christ ([read more][bible]).
 
 texas is home now, but i'm originally from indiana. i graduated from [purdue
 university’s computer engineering program][puece] in 2009, and then got a
@@ -52,7 +52,7 @@ against my better judgement, i sometimes write about code and computers:
 
 
 [where]: https://maps.google.com/?ll=30.317321,-97.748709&spn=0.076612,0.055189&t=m&z=14
-[employer]: http://waterfall.com
+[employer]: http://www.amazon.com
 [bible]: http://biblia.com/books/esv/Jn13.35
 [puece]: https://engineering.purdue.edu/ECE/
 [utcs]: http://www.cs.utexas.edu/
@@ -70,3 +70,4 @@ against my better judgement, i sometimes write about code and computers:
 [shipit-slides]: http://aaronstacy.com/shipit/
 [git-talk]: https://github.com/aaronj1335/git-complex-but-worth-it
 [git-talk-slides]: http://aaronstacy.com/git-complex-but-worth-it/
+[this guy]: http://aaronstacy.com/anderson-davids-growth-chart/
