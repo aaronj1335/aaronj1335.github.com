@@ -659,17 +659,9 @@ hr {
 
 code {
   font-family: Consolas, monospace;
-  border: 1px solid #dcdcdc;
-  padding: 1px 2px -1px 0px;
   font-size: 0.9em;
-  vertical-align: top;
-          border-radius: 3px;
-     -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
   color: #333;
   text-decoration: none;
-  position: relative;
-  top: 3px;
   padding-top: 2px;
 }
 
@@ -750,7 +742,7 @@ a:hover, a:focus {
 }
 
 ul {
-  list-style: disc outside;
+  list-style: none outside;
   margin-left: 20px;
 }
 
