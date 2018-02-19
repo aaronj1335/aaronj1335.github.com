@@ -6,10 +6,12 @@ tagline: not in the face
 
 <img class=me src="/assets/images/aaron.jpg" />
 
-i am a <span id=my-age>29</span> year old software developer living in [austin,
-texas][where], and i am currently employed by [a notable e-retailer][employer].
-i am married to a pretty girl named ashly; the most interesting man i've ever
-met is [this guy][]; and i’m a follower of Jesus Christ ([read more][bible]).
+i am a <span id=my-age>33</span> year old software engineer living in [austin,
+texas][where], and even though i currently work on android stuff at google,
+my heart's still with the open web.
+
+i've got a couple kids, a wife that's way out of my league, and i’m [a Jesus
+follower][bible].
 
 texas is home now, but i'm originally from indiana. i graduated from [purdue
 university’s computer engineering program][puece] in 2009, and then got a
