@@ -4,7 +4,7 @@ title: aaron
 tagline: not in the face
 ---
 
-<img class=me src="/assets/images/aaron.jpg" />
+<img class="me" src="/assets/images/aaron.jpg" />
 
 i am a <span id=my-age>33</span> year old software engineer living in [austin,
 texas][where], and even though i currently work on android stuff at google,
@@ -46,11 +46,11 @@ against my better judgement, i sometimes write about code and computers:
 
 <ul class="posts none">
   {% for post in site.posts %}
-    <li><span class=date>{{ post.date | date: "%d %B, %Y" }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+    <li><span class="date">{{ post.date | date: "%d %B, %Y" }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>
 
-<div class=here-be-pyrates>☠</div>
+<div class="here-be-pyrates">☠</div>
 
 
 [where]: https://maps.google.com/?ll=30.317321,-97.748709&spn=0.076612,0.055189&t=m&z=14
