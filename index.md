@@ -10,7 +10,7 @@ i am a <span id="my-age">33</span> year old software engineer living in [austin,
 texas][where], and even though i currently work on android stuff at google,
 my heart's still with the open web.
 
-i've got a couple kids, a wife that's way out of my league, and i’m [a Jesus
+i've got a few kids, a wife that's way out of my league, and i’m [a Jesus
 follower][bible].
 
 texas is home now, but i'm originally from indiana. i graduated from [purdue
