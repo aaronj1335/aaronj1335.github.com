@@ -1,4 +1,4 @@
-permalink: /writings/:title
+permalink: /writings/:title/
 
 exclude: ['README.md', 'gemfile', 'Gemfile.lock']
 highlighter: pygments
