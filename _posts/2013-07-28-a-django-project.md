@@ -14,7 +14,7 @@ creating:
 our team has been working hard, and i'm happy to say that our django app is
 coming along nicely:
 
-<div class=inset><img src=/assets/images/django-app.png /></div>
+<div class="inset"><img src="/assets/images/django-app.png" /></div>
 
 &hellip;err wait&hellip; 98% javascript? that can't be right&hellip; sometimes
 github gets these counts wrong:

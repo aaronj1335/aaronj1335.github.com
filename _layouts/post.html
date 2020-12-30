@@ -10,7 +10,7 @@ layout: default
 
 {% if page.tags contains 'cs373' %}
 
-<p class=cs373-note>
+<p class="cs373-note>
 
   this is part of a series of posts i wrote for my
   <a href="https://www.cs.utexas.edu/users/downing/cs373/drupal/">software
@@ -26,13 +26,13 @@ layout: default
   {{ content }}
 {% endif %}
 
-<div class=prev-next>
+<div class="prev-next">
   {% if page.previous %}
     <a href="{{ page.previous.url }}">&larr; {{ page.previous.title }}</a>
   {% endif %}
 
   {% if page.next %}
-    <a class=next href="{{ page.next.url }}">{{ page.next.title }} &rarr;</a>
+    <a class="next" href="{{ page.next.url }}">{{ page.next.title }} &rarr;</a>
   {% endif %}
 </div>
 

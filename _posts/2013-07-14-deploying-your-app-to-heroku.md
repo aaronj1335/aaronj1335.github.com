@@ -126,7 +126,7 @@ sql, it was all just a matter of tweaking django's `settings.py` file.
 i slightly amended the heroku article's suggestions to [this][settings.py]:
 
 <pre>
-  <code class=python>
+  <code class="python">
     if 'test' in sys.argv:
         # use in-memory db for unit testing b/c it's effin slow otherwise
         DATABASES = {

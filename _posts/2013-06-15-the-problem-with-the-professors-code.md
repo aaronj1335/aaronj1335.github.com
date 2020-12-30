@@ -18,7 +18,7 @@ the professor was kind enough to give us a skeleton of the project code, but he
 also asked us to use the exact set of functions he laid out. i thought this was
 unfortunate because [the code he posted][profcode] is not very good.
 
-<p class=disclaimer>
+<p class="disclaimer">
 <strong><em>disclaimer</em></strong>: apologies for the flame-bait title. it's
 admittedly a cheap trick employed by poor writers to make an otherwise boring
 piece more interesting, and there's nothing different here. the professor is

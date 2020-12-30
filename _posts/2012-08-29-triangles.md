@@ -39,17 +39,17 @@ say you're one of the top-flight engineers on the [sparrow][] team, and you've j
 
 you do all the typical wireframing stuff and end up with some wires that look like this:
 
-<div class=row>
+<div class="row">
   <div class="eight columns offset-by-one">
-    <img class=full-width src=/assets/triangles/sparrow_gmail.png />
+    <img class="full-width" src="/assets/triangles/sparrow_gmail.png" />
   </div>
 </div>
 
 you start banging out some code and come up with a view hierarchy that looks like this:
 
-<div class=row>
+<div class="row">
   <div class="eight columns offset-by-one">
-    <img class=full-width src=/assets/triangles/app_structure.png />
+    <img class="full-width" src="/assets/triangles/app_structure.png" />
   </div>
 </div>
 
@@ -109,9 +109,9 @@ as we'll see, leaving state around like this makes things complicated as the app
 
 one hallmark of this sort of design is the communication triangle that forms between the parent view and its children:
 
-<div class=row>
+<div class="row">
   <div class="eight columns offset-by-one">
-    <img class=full-width src=/assets/triangles/triangle.png />
+    <img class="full-width" src="/assets/triangles/triangle.png" />
   </div>
 </div>
 
@@ -178,9 +178,9 @@ now pretend that new features have crept into the requirements (i know, right?),
 
 when the user selects a message, we'll update the url with a slug for the message's subject. so our wireframes would become something like this (notice the updated url):
 
-<div class=row>
+<div class="row">
   <div class="eight columns offset-by-one">
-    <img class=full-width src="/assets/triangles/sparrow_gmail_with_routing.png" />
+    <img class="full-width" src="/assets/triangles/sparrow_gmail_with_routing.png" />
   </div>
 </div>
 

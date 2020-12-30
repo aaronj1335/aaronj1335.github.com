@@ -15,17 +15,17 @@ it's surprising that such succinct code can accomplish such messy tasks with so 
 - isolate your application state
 - don't repeat yourself
 
-reactive programming should be combined with the design patterns we know from mvc<a href=#footnote-0><sup>0</sup></a>. while those little demos seem to imply that reactive programming supplants mvc, the two are quite different. reactive programming proposes a small set of primitives for managing state with data flow, whereas mvc separates application concerns.
+reactive programming should be combined with the design patterns we know from mvc<a href="#footnote-0"><sup>0</sup></a>. while those little demos seem to imply that reactive programming supplants mvc, the two are quite different. reactive programming proposes a small set of primitives for managing state with data flow, whereas mvc separates application concerns.
 
 in a good mvc app the state is in the model, so let's look at how we can use reactive programming for the "M" and keep that separate from the "V".
 
 ## spaghetti
 
-we'll start with an example of a simon-says game<a href=#footnote-1><sup>1</sup></a>, implemented in [RxJS][], but without any separation of concerns.
+we'll start with an example of a simon-says game<a href="#footnote-1"><sup>1</sup></a>, implemented in [RxJS][], but without any separation of concerns.
 
 the game will show the user a sequence of numbers and a set of numbered buttons. the player pushes the buttons in the order of the numbers. they win if they get them all correct, otherwise it's a loss. they can restart the game at any time. here's an example:
 
-<iframe class=reactive-simon-game src="http://aaronstacy.com/frp-mvc-and-other-tlas/spaghetti" width=150 height=165></iframe>
+<iframe class="reactive-simon-game" src="http://aaronstacy.com/frp-mvc-and-other-tlas/spaghetti" width="150" height="165"></iframe>
 
 i know, i'm horrible at making games.
 
@@ -185,9 +185,9 @@ the repo has the full listing of a reactive-programming-driven model for this ga
 
 this design enables simple views responsible for nothing beyond converting the data to DOM. the views are modular and testable, and the model doesn't need to be modified for every new feature. we're reaping the benefits of reactive programming while maintaining mvc's separation of concerns.
 
-<a name=footnote-0>[0]</a>: there are different flavors of mvc, and this article is mostly concerned with the model and view, so i'm using "mvc" as a generic term.
+<a name="footnote-0">[0]</a>: there are different flavors of mvc, and this article is mostly concerned with the model and view, so i'm using "mvc" as a generic term.
 
-<a name=footnote-1>[1]</a>: the idea for the game comes directly from [@lawnsea][]'s [talk][lawnsea-talk], which was kinda the inspiration for the post.
+<a name="footnote-1">[1]</a>: the idea for the game comes directly from [@lawnsea][]'s [talk][lawnsea-talk], which was kinda the inspiration for the post.
 
 [flapjax-dnd]: http://www.flapjax-lang.org/try/index.html?edit=drag.html
 [flapjax]: http://www.cs.brown.edu/~sk/Publications/Papers/Published/mgbcgbk-flapjax/
