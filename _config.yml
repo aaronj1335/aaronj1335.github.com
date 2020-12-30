@@ -1,7 +1,6 @@
 permalink: /writings/:title/
 
 exclude: ['README.md', 'gemfile', 'Gemfile', 'Gemfile.lock']
-highlighter: pygments
 
 title: aaron stacy's writings
 tagline: not in the face
