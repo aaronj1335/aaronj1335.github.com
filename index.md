@@ -6,7 +6,7 @@ tagline: not in the face
 
 <img class="me" src="/assets/images/aaron.jpg" />
 
-I am a <span id="my-age">33</span> year old software engineer living in [Austin,
+I am a <span id="my-age">35</span> year old software engineer living in [Austin,
 Texas][where], and even though I currently work on Android stuff at Google,
 my heart's still with the open web.
 
@@ -31,6 +31,9 @@ I like working on big mobile apps, and so far that's all been closed source, but
 
 # Talks
 
+ - [The web and Android][webnandroid] ([slides][webnandroid-slides]): After
+   spending ~4 years each on both large scale web and Android apps, I gave this
+   talk about what each does well, and what they could learn from eachother.
  - [Don't just build, ship][shipit] ([slides][shipit-slides]): I gave a talk at
    [jQuery Conference Austin][jqconf] about tools that help us ship our
    projects.
@@ -75,3 +78,5 @@ Against my better judgement, I used to write about code and computers:
 [everywherebible_splash]: https://everywherebible.org
 [everywherebible_app]: https://en.everywherebible.org
 [rst_checklist]: https://github.com/g11x/checklistapp
+[webnandroid]: https://github.com/aaronj1335/the-web-and-android
+[webnandroid-slides]: http://aaronstacy.com/the-web-and-android/
