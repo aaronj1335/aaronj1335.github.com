@@ -130,6 +130,12 @@ lines makes it a lot easier to search for issues.
     :g/<c-r>//d " `<c-r>/` gets replaced to the line above
     ```
 
+    Or if you'd like the inverse, i.e. delete lines that don't match, throw a `!` in there:
+
+    ```
+    :g!/am_kill/d
+    ```
+
 ### Find logs from a specific app
 
 Once you’ve [gotten the UID for your app](#get-package-info), and [filtered the
