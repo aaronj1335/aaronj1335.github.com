@@ -48,3 +48,19 @@ This is more work than most people need, but I took this approach for a number o
     [Bokeh](https://docs.bokeh.org/en/latest/) was the best option I found, but there were a lot of details I found frustrating that I couldn't easily fix (i.e. getting more context and precision in tooltips).
 
     I was already writing code to generate the data and format that into something the charting library could use, and since I've got a background in web development, it wasn't a big leap to translate the notebooks into scripts that generated HTML files.
+
+## Future work
+
+Listen we're all busy, and this is a side project. But a few things that'd be nice to fix up:
+
+- Accessibility
+- Responsiveness / mobile friendliness
+- Cross-browser animations &emdash; I learned that Blink animates the `d` attribute of SVG elements, but WebKit does not. I couldn't even find a [caniuse.com](https://caniuse.com) link, but [CSS tricks references this](https://css-tricks.com/svg-properties-and-css/#aa-wrapping-up). So you'll notice the the only animation in Safari is switching the networth chart between total gains and value+cost basis. It's so clean to use CSS for the rest of the animations, I'm not inclined to migrate those to JS.
+- More data and charts:
+  - My dad tells me I should add a button to adjust everything for inflation. I see where he's going with this, and maybe it's a good exercise in empathy.
+  - Provide a breakdown of the cost basis/value chart on a per-asset basis.
+  - Top + bottom 3 assets for internal rates of return (spoiler alert: BTC is at the bottom).
+- Post the scripts that generate the data. This is tricky because:
+  1. There are a lot of assumptions baked into them (it'd be hard to visualize all of this across different currencies).
+  1. There is a lot of personal information that is hard to generalize (i.e. account names).
+- Hosting &emdash; hosting static HTML pages can be pretty secure, so it'd be nice to i.e. hook this up to a GitHub workflow that posted them on a private pages site.
