@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Personal finances dashboard
+title: Visualizing personal finances
 author: Aaron Stacy
 ---
 
 ## TL;DR
 
-[Click here to see the dashboard with some example data](/personal-finances-dashboard).
+[Click here to see the visualizations with some example data](/personal-finances-dashboard).
 
 ## Background
 
