@@ -167,6 +167,36 @@ helpful to copy/paste and clean that up.
 :g/\v 10161 .*ActivityThread.*Failed to find provider/d
 ```
 
+### Combining logcat archives
+
+Higher-end devices will sometimes archive logcat files. The files are numbered in the `FS/data/misc/logd` directory. I use this script to combine them into a single file for easier searching / navigation:
+
+```shell
+#!/bin/bash -e
+
+br="$(python3 -c "import os; print(os.path.abspath(\"$1\"))")"
+dir=$(dirname $br)
+unzipped_dir=$dir/$(basename $br .zip)
+
+if [ -e $unzipped_dir ]; then
+  rm -rf $unzipped_dir
+fi
+
+mkdir $unzipped_dir
+cd $unzipped_dir
+
+unzip $br
+
+if [ -e FS/data/misc/logd ]; then
+  ls FS/data/misc/logd \
+    | grep logcat \
+    | grep -v .id \
+    | sort -r \
+    | sed 's|^|FS/data/misc/logd/|' \
+    | xargs cat > combined_logcat.txt
+fi
+```
+
 ## Other resources
 
 *   Official docs on [capturing bug
