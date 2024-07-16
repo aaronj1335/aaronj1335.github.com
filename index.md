@@ -1,25 +1,16 @@
 ---
 layout: page
 title: Aaron
-tagline: not in the face
+tagline: snacks and naps
 ---
 
 <img class="me" src="/assets/images/aaron.jpg" />
 
-I am a <span id="my-age">35</span> year old software engineer living in [Austin,
-Texas][where], and even though I currently work on Android stuff at Google,
-my heart's still with the open web.
+Hi! I'm Aaron. This is my website where I collect little digital side projects.
 
-I've got a few kids, a wife that's way out of my league, and I’m [a Jesus
-follower][bible].
+On the personal side, my family and I live in Austin, and [my faith](http://biblia.com/books/esv/Jn13.35) is very important to me. While Texas is home now, I've got roots in Indiana.
 
-Texas is home now, but I'm originally from Indiana. I graduated from [Purdue
-University’s computer engineering program][puece] in 2009, and then got a
-master's degree in computer science from the [University of Texas][utcs]. I also
-spent several years in the Marine Corps, during which i had the opportunity to
-serve overseas with [an exemplary reserve unit][det1comm].
-
-If you'd like to get a hold of me, [Twitter is good place to start][twitter].
+I am a software engineer and former Marine. [My LinkedIn profile](https://www.linkedin.com/in/aaronrstacy) has my professional info.
 
 # Code
 
@@ -43,7 +34,7 @@ I like working on big mobile apps, and so far that's all been closed source, but
 
 # Writings
 
-Against my better judgement, I used to write about code and computers:
+Against my better judgement, I infrequently write about code and computers:
 
 <ul class="posts none">
   {% for post in site.posts %}
@@ -54,13 +45,6 @@ Against my better judgement, I used to write about code and computers:
 <div class="here-be-pyrates">☠</div>
 
 
-[where]: https://maps.google.com/?ll=30.317321,-97.748709&spn=0.076612,0.055189&t=m&z=14
-[employer]: http://www.amazon.com
-[bible]: http://biblia.com/books/esv/Jn13.35
-[puece]: https://engineering.purdue.edu/ECE/
-[utcs]: http://www.cs.utexas.edu/
-[det1comm]: http://www.facebook.com/pages/Detachment-1-Communications-Company/302302460425
-[twitter]: http://twitter.com/aaronj1335
 [the_hubs]: https://github.com/aaronj1335
 [csi]: https://github.com/aaronj1335/csi
 [npm]: https://npmjs.org/
