@@ -14,7 +14,7 @@ I am a software engineer and former Marine. [My LinkedIn profile](https://www.li
 
 # Code
 
-I like working on big mobile apps, and so far that's all been closed source, but [I write code in my free time too][the_hubs]. Some projects include:
+I like working on the largest scale mobile systems possible, and so far that's been mostly closed source, but [I write code in my free time too][the_hubs]. Some projects include:
 
  - [Everywhere Bible][]: [2 of the world's 3 billion internet users can't use today's Bible apps][everywherebible_splash]. That's unfortunate because many of those are more likely to have a smart phone than running water. [This app][everywherebible_app] is a proof-of-concept that we can do a better job of getting the Bible out there.
 - [Refugee Services of Texas checklist app][rst_checklist]: A hackathon project where my team worked with local non-profits to help Austin area asylum seekers through the relocation process.
