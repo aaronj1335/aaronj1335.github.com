@@ -757,6 +757,7 @@ li p {
 img.me {
   margin: 0 auto;
   display: block;
+  width: 135px;
           border-radius: 1em;
      -moz-border-radius: 1em;
   -webkit-border-radius: 1em;
