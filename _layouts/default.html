@@ -8,7 +8,7 @@
 
   <link rel="alternate" type="application/atom+xml" href="http://aaronstacy.com/atom.xml" title="aaron stacy's writings">
 
-  <title>{{ title }}</title>
+  <title>$title</title>
 
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -25,7 +25,7 @@
 
   <div class=container>
     <div class="twelve columns offset-by-two">
-      {{ content }}
+      $content
     </div>
   </div>
 
@@ -80,10 +80,10 @@
       }
 
       var age = new Date().getFullYear() - new Date(1985, 4, 11).getFullYear();
-      var $age = document.getElementById('my-age')
-      if ($age) {
-        var accessor = $age.textContent? 'textContent' : 'innerText';
-        $age[accessor] = age;
+      var $$age = document.getElementById('my-age')
+      if ($$age) {
+        var accessor = $$age.textContent? 'textContent' : 'innerText';
+        $$age[accessor] = age;
       }
     });
   </script>

@@ -1,7 +1,7 @@
  <entry>
-   <title>{{ title }}</title>
-   <link href="http://aaronstacy.com/writings/{{ slug }}/"/>
-   <updated>{{ date }}T00:00:00+00:00</updated>
-   <id>http://aaronstacy.com/writings/{{ slug }}</id>
-   <content type="html">{{ escaped }}</content>
+   <title>$title</title>
+   <link href="http://aaronstacy.com/writings/$slug/"/>
+   <updated>${date}T00:00:00+00:00</updated>
+   <id>http://aaronstacy.com/writings/$slug</id>
+   <content type="html">$escaped</content>
  </entry>

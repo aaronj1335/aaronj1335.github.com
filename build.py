@@ -1,7 +1,7 @@
 import datetime
 import html
-import re
 import shutil
+import string
 from pathlib import Path
 
 import markdown
@@ -13,7 +13,7 @@ SKIP = {"README.md", "build.py", "index.md", "pyproject.toml", "uv.lock"}
 
 
 def render(name, **values):
-    return re.sub(r"{{ (\w+) }}", lambda m: str(values[m[1]]), (ROOT / "_layouts" / name).read_text())
+    return string.Template((ROOT / "_layouts" / name).read_text()).substitute(values)
 
 
 def read(path):
@@ -51,7 +51,8 @@ for previous, post, following in zip([None, *posts[:-1]], posts, [*posts[1:], No
 posts.reverse()
 index, content = read(ROOT / "index.md")
 items = "".join(render("item.html", **p) for p in posts)
-write("index.html", render("default.html", title=index["title"], content=content.replace("{{ posts }}", items)))
+page = render("index.html", content=content, posts=items)
+write("index.html", render("default.html", title=index["title"], content=page))
 entries = "".join(render("entry.xml", **p, escaped=html.escape(p["content"])) for p in posts)
 now = datetime.datetime.now(datetime.UTC).isoformat(timespec="seconds")
 write("atom.xml", render("atom.xml", entries=entries, updated=now))

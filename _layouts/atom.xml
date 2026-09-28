@@ -4,12 +4,12 @@
  <title>aaron stacy's writings</title>
  <link href="http://aaronstacy.com/atom.xml" rel="self"/>
  <link href="http://aaronstacy.com"/>
- <updated>{{ updated }}</updated>
+ <updated>$updated</updated>
  <id>http://aaronstacy.com</id>
  <author>
    <name>Aaron Stacy</name>
    <email></email>
  </author>
 
-{{ entries }}
+$entries
 </feed>

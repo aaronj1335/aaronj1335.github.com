@@ -36,12 +36,6 @@ I like working on the largest scale mobile systems possible, and so far that's b
 
 Against my better judgement, I infrequently write about code and computers:
 
-<ul class="posts none">
-{{ posts }}
-</ul>
-
-<div class="here-be-pyrates">☠</div>
-
 
 [the_hubs]: https://github.com/aaronj1335
 [csi]: https://github.com/aaronj1335/csi
