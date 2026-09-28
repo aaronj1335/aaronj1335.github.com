@@ -20,11 +20,9 @@ layout: default
 
 {% endif %}
 
-{% if page.emojify %}
-  {{ content | emojify }}
-{% else %}
+
   {{ content }}
-{% endif %}
+
 
 <div class="prev-next">
   {% if page.previous %}
