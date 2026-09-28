@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>aaron stacy's writings</title>
+ <link href="http://aaronstacy.com/atom.xml" rel="self"/>
+ <link href="http://aaronstacy.com"/>
+ <updated>$updated</updated>
+ <id>http://aaronstacy.com</id>
+ <author>
+   <name>Aaron Stacy</name>
+   <email></email>
+ </author>
+
+$entries
+</feed>

@@ -1,0 +1,71 @@
+[project]
+name = "aaronstacy-com"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "markdown~=3.11",
+    "pyyaml~=6.0.3",
+    'ruff~=0.16.1',
+]
+
+[tool.ruff.lint]
+preview = true
+select = ['ALL']
+ignore = [
+    'builtin-variable-shadowing',
+    'builtin-argument-shadowing',
+    'builtin-import-shadowing',
+    'ANN',
+    'cached-instance-method',
+    'BLE',
+    'unnecessary-collection-call',
+    'C90',
+    'CPY',
+    'D',
+    'DOC',
+    'DTZ',
+    'multiple-imports-on-one-line',
+    'EM',
+    'EXE',
+    'FBT',
+    'FIX',
+    'reimplemented-operator',
+    'unconventional-import-alias',
+    'PD',
+    'manual-list-comprehension',
+    'PGH',
+    'import-outside-top-level',
+    'too-many-return-statements',
+    'too-many-branches',
+    'too-many-arguments',
+    'too-many-locals',
+    'too-many-statements',
+    'too-many-boolean-expressions',
+    'too-many-positional-arguments',
+    'too-many-nested-blocks',
+    'repeated-equality-comparison',
+    'magic-value-comparison',
+    'global-statement',
+    'unspecified-encoding',
+    'PT',
+    'builtin-open',
+    'ambiguous-unicode-character-string',
+    'non-empty-init-module',
+    'assert',
+    'relative-imports',
+    'T20',
+    'TD',
+    'typing-only-first-party-import',
+    'typing-only-third-party-import',
+    'typing-only-standard-library-import',
+    'TRY',
+]
+
+[tool.ruff.lint.flake8-quotes]
+inline-quotes = 'single'
+docstring-quotes = 'single'
+multiline-quotes = 'single'
+
+[tool.ruff.format]
+quote-style = 'single'
+

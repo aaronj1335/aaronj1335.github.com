@@ -2,8 +2,8 @@ mi github pages
 
 ## developing
 
-- you'll probably need to `brew install ruby` and then set up the `$PATH` to reference that instead of the system ruby, which obviously doesn't work lol why would it.
+- install [uv](https://docs.astral.sh/uv/)
 
-- `bundle install`
+- `uv run build.py` builds the site into `_site/`
 
-- `bundle exec jekyll serve`
+- `uv run python -m http.server -d _site 4000` serves it at http://localhost:4000

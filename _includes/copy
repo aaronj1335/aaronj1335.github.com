@@ -1,3 +1,0 @@
-<div class="copy">
-  &copy; aaron stacy {{ page.date | date: "%Y" }}, all rights reserved
-</div>
