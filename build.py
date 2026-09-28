@@ -1,190 +1,59 @@
-"""Builds the site into _site/."""
-
 import datetime
-import os
+import html
 import re
 import shutil
 from pathlib import Path
 
+import markdown
 import yaml
 
-import kramdown
-
 ROOT = Path(__file__).parent
-DESTINATION = ROOT / "_site"
-FRONT_MATTER = re.compile(r"\A(---\s*\n.*?\n?)^((---|\.\.\.)\s*$\n?)", re.M | re.S)
-POST_FILENAME = re.compile(r"(\d{4})-(\d\d)-(\d\d)-([\w-]+)\.md")
-NAME = re.compile(r"\w+")
-
-# Just enough Liquid for the templates in _layouts and _includes, atom.xml, etc.
-LIQUID = re.compile(r"({{.*?}}|{%.*?%})", re.S)
-VARIABLE = r"\w+(?:\.\w+)*"
-OUTPUT = re.compile(rf'\s*({VARIABLE})\s*((?:\|\s*\w+\s*(?::\s*"[^"]*"\s*)?)*)')
-FILTER = re.compile(r'\|\s*(\w+)\s*(?::\s*"([^"]*)")?')
-CONDITION = re.compile(rf"({VARIABLE})(?: contains '([^']*)')?")
-LOOP = re.compile(rf"(\w+) in ({VARIABLE})")
-XML_ESCAPES = str.maketrans({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&apos;"})
-FILTERS = {
-    "date": lambda value, fmt: value.strftime(fmt),
-    "date_to_xmlschema": lambda value: value.isoformat(timespec="seconds"),
-    "xml_escape": lambda value: value.translate(XML_ESCAPES),
-}
+SITE = ROOT / "_site"
+SKIP = {"README.md", "build.py", "index.md", "pyproject.toml", "uv.lock"}
 
 
-def has_front_matter(path):
-    with path.open("rb") as file:
-        return file.readline().rstrip() == b"---"
-
-
-def read_text(path):
-    if not path.resolve().is_relative_to(ROOT.resolve()):
-        raise ValueError(f"{path} links outside {ROOT}")
-    return path.read_text(encoding="utf-8")
+def render(name, **values):
+    return re.sub(r"{{ (\w+) }}", lambda m: str(values[m[1]]), (ROOT / "_layouts" / name).read_text())
 
 
 def read(path):
-    text = read_text(path)
-    if match := FRONT_MATTER.match(text):
-        return yaml.safe_load(match[1]) or {}, text[match.end():]
-    return {}, text
-
-
-def expect(pattern, text):
-    if match := pattern.fullmatch(text):
-        return match
-    raise ValueError(f"unsupported: {text!r}")
-
-
-def parse(tokens, until=()):
-    nodes = []
-    for token in tokens:
-        if token.startswith("{%"):
-            tag, _, argument = token[2:-2].strip().partition(" ")
-            if tag in until:
-                return nodes, tag
-            if tag in ("if", "unless", "for"):
-                argument = expect(LOOP if tag == "for" else CONDITION, argument.strip()).groups()
-                body, end = parse(tokens, ("else", f"end{tag}"))
-                orelse = parse(tokens, (f"end{tag}",))[0] if end == "else" else []
-                nodes.append((tag, argument, body, orelse))
-            elif tag == "include":
-                nodes.append((tag, expect(NAME, argument.strip())[0]))
-            else:
-                raise ValueError(f"unsupported Liquid: {token!r}")
-        elif token.startswith("{{"):
-            variable, filters = expect(OUTPUT, token[2:-2]).groups()
-            nodes.append(("output", variable, FILTER.findall(filters)))
-        elif token:
-            nodes.append(token)
-    if until:
-        raise ValueError(f"missing {{% {until[-1]} %}}")
-    return nodes, None
-
-
-def lookup(variable, context):
-    value = context
-    for key in variable.split("."):
-        value = value.get(key) if isinstance(value, dict) else None
-    return value
-
-
-def render(nodes, context):
-    out = []
-    for node in nodes:
-        if isinstance(node, str):
-            out.append(node)
-        elif node[0] == "output":
-            value = lookup(node[1], context)
-            for name, argument in node[2]:
-                value = FILTERS[name](value, argument) if argument else FILTERS[name](value)
-            out.append("" if value is None else str(value))
-        elif node[0] == "include":
-            out.append(liquid(read(ROOT / "_includes" / node[1])[1], context))
-        elif node[0] == "for":
-            name, variable = node[1]
-            out += [render(node[2], {**context, name: item}) for item in lookup(variable, context) or ()]
-        else:
-            tag, (variable, item), body, orelse = node
-            value = lookup(variable, context)
-            if item is not None:
-                value = item in (value or ())
-            test = value is not None and value is not False
-            out.append(render(body if test == (tag == "if") else orelse, context))
-    return "".join(out)
-
-
-def liquid(template, context):
-    return render(parse(iter(LIQUID.split(template)))[0], context)
-
-
-def layout(content, page, site):
-    name = page.get("layout")
-    while name:
-        data, template = read(ROOT / "_layouts" / f"{expect(NAME, name)[0]}.html")
-        content = liquid(template, {"site": site, "page": page, "content": content})
-        name = data.get("layout")
-    return content
-
-
-def skip(path, exclude):
-    return path.name[0] in "._#~" or path.name.endswith("~") or path.as_posix() in exclude or path.is_symlink()
-
-
-def source_files(exclude):
-    for directory, subdirectories, files in os.walk(ROOT):
-        directory = Path(directory)
-        subdirectories[:] = sorted(d for d in subdirectories if not skip(directory / d, exclude))
-        yield from (directory / f for f in sorted(files) if not skip(directory / f, exclude))
+    _, front, body = path.read_text().split("---\n", 2)
+    return yaml.safe_load(front), markdown.markdown(body, extensions=["fenced_code", "smarty", "toc"])
 
 
 def write(path, text):
-    path = DESTINATION / path
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(text, encoding="utf-8")
+    (SITE / path).parent.mkdir(parents=True, exist_ok=True)
+    (SITE / path).write_text(text)
 
 
-def main():
-    site = yaml.safe_load(read_text(ROOT / "_config.yml"))
-    site["time"] = datetime.datetime.now(datetime.UTC)
-    exclude = {(ROOT / path).as_posix() for path in site.get("exclude", [])}
+shutil.rmtree(SITE, ignore_errors=True)
+shutil.copytree(ROOT, SITE, ignore=lambda _, names: [n for n in names if n[0] in "._" or n in SKIP])
 
-    posts = []
-    for path in sorted((ROOT / "_posts").glob("[!.]*.md")):
-        year, month, day, slug = expect(POST_FILENAME, path.name).groups()
-        data, body = read(path)
-        date = datetime.datetime(int(year), int(month), int(day), tzinfo=datetime.UTC)
-        posts.append({**data, "date": date, "url": f"/writings/{slug}/", "id": f"/writings/{slug}", "body": body})
-    for previous, post, following in zip([None, *posts[:-1]], posts, [*posts[1:], None], strict=True):
-        post["previous"], post["next"] = previous, following
-    site["posts"] = posts[::-1]
+posts = []
+for path in sorted((ROOT / "_posts").glob("*.md")):
+    post, content = read(path)
+    date, slug = datetime.date.fromisoformat(path.name[:10]), path.stem[11:]
+    post.update(content=content, date=date, published=f"{date:%d %B, %Y}", slug=slug, url=f"/writings/{slug}/")
+    posts.append(post)
 
-    pages, static = [], []
-    for path in source_files(exclude):
-        if not has_front_matter(path):
-            static.append(path.relative_to(ROOT))
-            continue
-        data, body = read(path)
-        output = path.relative_to(ROOT).with_suffix(".html" if path.suffix == ".md" else path.suffix)
-        url = "/" + output.as_posix()
-        if output.name == "index.html":
-            url = url.removesuffix("index.html")
-        pages.append({**data, "url": url, "name": path.name, "output": output, "body": body})
-    site["pages"] = sorted(pages, key=lambda page: page["name"])
+for previous, post, following in zip([None, *posts[:-1]], posts, [*posts[1:], None], strict=True):
+    page = render(
+        "post.html",
+        header="" if post.get("custom_header") else render("header.html", **post),
+        note=render("cs373.html") if "cs373" in post.get("tags", []) else "",
+        content=post["content"],
+        previous=f'<a href="{previous["url"]}">&larr; {previous["title"]}</a>' if previous else "",
+        next=f'<a class="next" href="{following["url"]}">{following["title"]} &rarr;</a>' if following else "",
+        year=post["date"].year,
+    )
+    write(f"writings/{post['slug']}/index.html", render("default.html", title=post["title"], content=page))
 
-    if DESTINATION.exists():
-        shutil.rmtree(DESTINATION)
-    for post in posts:
-        post["content"] = kramdown.convert(liquid(post["body"], {"site": site, "page": post}))
-        write(Path(post["url"].strip("/"), "index.html"), layout(post["content"], post, site))
-    for page in pages:
-        content = liquid(page["body"], {"site": site, "page": page})
-        if page["name"].endswith(".md"):
-            content = kramdown.convert(content)
-        write(page["output"], layout(content, page, site))
-    for path in static:
-        (DESTINATION / path).parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(ROOT / path, DESTINATION / path)
-
-
-if __name__ == "__main__":
-    main()
+posts.reverse()
+index, content = read(ROOT / "index.md")
+items = "".join(render("item.html", **p) for p in posts)
+write("index.html", render("default.html", title=index["title"], content=content.replace("{{ posts }}", items)))
+entries = "".join(render("entry.xml", **p, escaped=html.escape(p["content"])) for p in posts)
+now = datetime.datetime.now(datetime.UTC).isoformat(timespec="seconds")
+write("atom.xml", render("atom.xml", entries=entries, updated=now))
+urls = ["/", "/atom.xml", "/sitemap.txt", *(p["url"] for p in posts)]
+write("sitemap.txt", "\n".join(f"http://aaronstacy.com{url}" for url in urls))

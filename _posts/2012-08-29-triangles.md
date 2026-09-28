@@ -13,7 +13,12 @@ tags: [code, javascript]
   "the shape of an application"
 </h1>
 
-{% include byline %}
+<div class="row byline">
+  <span class="by">by</span>
+  <a href="/" class=author>Aaron Stacy</a>
+  <span class="on">on</span>
+  <span class="date">29 August, 2012</span>
+</div>
 
 mvc has become a bit of a buzzword &lt;/understatement&gt;. it's a complicated, nuanced concept, and even if you're using an mvc framework, it's easy to get wrong.
 

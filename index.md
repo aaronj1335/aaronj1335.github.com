@@ -37,9 +37,7 @@ I like working on the largest scale mobile systems possible, and so far that's b
 Against my better judgement, I infrequently write about code and computers:
 
 <ul class="posts none">
-  {% for post in site.posts %}
-    <li><span class="date">{{ post.date | date: "%d %B, %Y" }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
+{{ posts }}
 </ul>
 
 <div class="here-be-pyrates">☠</div>

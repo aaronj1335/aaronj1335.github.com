@@ -1,40 +1,25 @@
----
-layout: default
----
-
-{% unless page.custom_header %}
-  <h1>{{ page.title }}</h1>
-
-  {% include byline %}
-{% endunless %}
-
-{% if page.tags contains 'cs373' %}
-
-<p class="cs373-note>
-
-  this is part of a series of posts i wrote for my
-  <a href="https://www.cs.utexas.edu/users/downing/cs373/drupal/">software
-  engineering course</a> at university of texas.
-
-</p>
-
-{% endif %}
-
-
-  {{ content }}
-
+{{ header }}
+{{ note }}
+{{ content }}
 
 <div class="prev-next">
-  {% if page.previous %}
-    <a href="{{ page.previous.url }}">&larr; {{ page.previous.title }}</a>
-  {% endif %}
-
-  {% if page.next %}
-    <a class="next" href="{{ page.next.url }}">{{ page.next.title }} &rarr;</a>
-  {% endif %}
+  {{ previous }}
+  {{ next }}
 </div>
 
-{% include disqus %}
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'aaronstacydotcom'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
-{% include copy %}
-
+<div class="copy">
+  &copy; aaron stacy {{ year }}, all rights reserved
+</div>

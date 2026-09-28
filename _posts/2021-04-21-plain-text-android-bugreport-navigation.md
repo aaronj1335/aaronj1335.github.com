@@ -114,27 +114,19 @@ lines makes it a lot easier to search for issues.
    searching for stuff uses not-arcane regex syntax.
 3. Search for what you want to remove:
 
-    ```
-    /\vcom.google.android.gms identical.*lines<cr>
-    ```
+        /\vcom.google.android.gms identical.*lines<cr>
 
 4. Remove those lines:
 
-    ```
-    :g/\vcom.google.android.gms identical.*lines/d<cr>
-    ```
+        :g/\vcom.google.android.gms identical.*lines/d<cr>
 
     Optionally, vim can auto-fill your last search by pressing `<c-r>/` after the first `/`:
 
-    ```
-    :g/<c-r>//d " `<c-r>/` gets replaced to the line above
-    ```
+        :g/<c-r>//d " `<c-r>/` gets replaced to the line above
 
     Or if you'd like the inverse, i.e. delete lines that don't match, throw a `!` in there:
 
-    ```
-    :g!/am_kill/d
-    ```
+        :g!/am_kill/d
 
 ### Find logs from a specific app
 
